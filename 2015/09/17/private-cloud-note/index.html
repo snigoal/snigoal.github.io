@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>搭建私有云笔记 Git + Markdown + CSDN Code + VS Code | SniGoal</title>
+  <meta name="author" content="snigoal">
+  
+  <meta name="description" content="有道云笔记出现故障，原因不明。重装应用后故障依然存在。怀疑是服务端故障。  
+之前有一次是因为本地路径配置错误而不能添加附件。因而有理由怀疑客户端可能存在问题但用户无法发现或修复。   
+考虑到云笔记在市场上发展前景一般，免费服务可能萎缩，萌生搭建私有云笔记的路径。
+方案：Git + MarkDow">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="搭建私有云笔记 Git + Markdown + CSDN Code + VS Code"/>
+  <meta property="og:site_name" content="SniGoal"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="SniGoal" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">SniGoal</a></h1>
+  <h2><a href="/">no easy breath on sand.</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-17T02:29:21.000Z"><a href="/2015/09/17/private-cloud-note/">2015-09-17</a></time>
+      
+      
+  
+    <h1 class="title">搭建私有云笔记 Git + Markdown + CSDN Code + VS Code</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>有道云笔记出现故障，原因不明。重装应用后故障依然存在。怀疑是服务端故障。  </p>
+<p>之前有一次是因为本地路径配置错误而不能添加附件。因而有理由怀疑客户端可能存在问题但用户无法发现或修复。   </p>
+<p>考虑到云笔记在市场上发展前景一般，免费服务可能萎缩，萌生搭建私有云笔记的路径。</p>
+<h2 id="方案：Git_+_MarkDown_+_CSDN_Code_+_VS_Code">方案：Git + MarkDown + CSDN Code + VS Code</h2><p>这个方案的亮点我认为是VS Code。</p>
+<h2 id="VS_Code">VS Code</h2><p>用了一个月MarkdownPad，优点是快捷键，对Markdown初学者友好。缺点是不能支持‘表格’语法，预览的渲染效果一般。  </p>
+<p>Sublime Text是网上推荐最多的方案，优点是绿色免安装。缺点是需要通过浏览器预览。Sublime Text性能上的缺点是打开大型文本文件很慢，被VS秒杀。</p>
+<p>VS Code应该算高能。原生支持Markdown，支持简单Git操作，跨平台。支出实时预览，能够像MarkdownPad左侧编辑右侧预览。缺点是预览不能跟随编辑点，不支持打开300MB的文件。  </p>
+<p>总的来说，VS Code能够在作为主力文本编辑器，同时很好兼任Markdown编辑器。MS爆发起来很高能，是其一贯风格。</p>
+<h2 id="Git">Git</h2><p>笔记类产品主要内容是文本，非常适合Git。  </p>
+<p>而版本管理非常便于查找修改历史，绝对算是增强版文字处理。</p>
+<h2 id="Markdown">Markdown</h2><p>Markdown提供了简单易用的语法，很容易实现层级化文本，非常适合笔记的应用场景。  </p>
+<p>Markdown非常适合作为在线帮助文档的解决方案，案例已经很多。</p>
+<h2 id="CSDN_Code">CSDN Code</h2><p>CSDN Code提供11个私有仓库，总空间1GB。国内服务，不用担心被墙。  </p>
+<p>考虑CSDN的定位以及其Code产品和腾讯的合作，稳定性和可持续性有保障。  </p>
+<p>Git的分布式特性，可同时向多个仓库提交，备份和迁移方便，以后使用私有仓库也方便。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/cloud/">cloud</a>, <a href="/tags/tip/">tip</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://www.snigoal.com/2015/09/17/private-cloud-note/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:www.snigoal.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/cloud/">cloud</a><small>1</small></li>
+  
+    <li><a href="/tags/first/">first</a><small>2</small></li>
+  
+    <li><a href="/tags/ref/">ref</a><small>1</small></li>
+  
+    <li><a href="/tags/star/">star</a><small>1</small></li>
+  
+    <li><a href="/tags/thanks/">thanks</a><small>1</small></li>
+  
+    <li><a href="/tags/tip/">tip</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 snigoal
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo tips | SniGoal</title>
+  <meta name="author" content="snigoal">
+  
+  <meta name="description" content="标签给一篇文章添加多个标签，格式如下：
+tags: [tag1, tag2, tag3]
+域名GitHub Pages绑定域名需要在代码仓库更目录下创建CNAME文件，文件内容是要绑定的域名。  
+Hexo对无文件名后缀的文件不做处理，所以可以在source目录下创建CNAME文件并在内容中写明域名">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Hexo tips"/>
+  <meta property="og:site_name" content="SniGoal"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="SniGoal" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">SniGoal</a></h1>
+  <h2><a href="/">no easy breath on sand.</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-16T14:11:24.000Z"><a href="/2015/09/16/hexo-tips/">2015-09-16</a></time>
+      
+      
+  
+    <h1 class="title">Hexo tips</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="标签">标签</h2><p>给一篇文章添加多个标签，格式如下：</p>
+<pre><code>tags: [ta<span class="keyword">g1</span>, ta<span class="keyword">g2</span>, ta<span class="keyword">g3</span>]
+</code></pre><h2 id="域名">域名</h2><p>GitHub Pages绑定域名需要在代码仓库更目录下创建CNAME文件，文件内容是要绑定的域名。  </p>
+<p>Hexo对无文件名后缀的文件不做处理，所以可以在source目录下创建CNAME文件并在内容中写明域名。</p>
+<h2 id="404">404</h2><p>在source目录下创建404.html或404.md。</p>
+<h2 id="重启后出现‘Permission_denied_(publickey)’错误">重启后出现‘Permission denied (publickey)’错误</h2><p>需要将key添加到ssh-agent。</p>
+<pre><code><span class="label">ssh</span>-<span class="keyword">add </span>~/.ssh/id_rsa
+</code></pre><p>ref <a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="external">https://help.github.com/articles/generating-ssh-keys/</a></p>
+<h2 id="Could_not_open_a_connection_to_your_authentication_agent">Could not open a connection to your authentication agent</h2><p>需要启动ssh-agent并将key添加到ssh-agent。</p>
+<pre><code><span class="comment"># start the ssh-agent in the background</span>
+ssh-agent <span class="operator">-s</span>
+
+<span class="comment"># start the ssh-agent in the background</span>
+<span class="built_in">eval</span> $(ssh-agent <span class="operator">-s</span>)
+
+ssh-agent bash
+</code></pre><p>ref <a href="http://www.cnblogs.com/sheldonxu/archive/2012/09/17/2688281.html" target="_blank" rel="external">http://www.cnblogs.com/sheldonxu/archive/2012/09/17/2688281.html</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/tip/">tip</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://www.snigoal.com/2015/09/16/hexo-tips/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:www.snigoal.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/cloud/">cloud</a><small>1</small></li>
+  
+    <li><a href="/tags/first/">first</a><small>2</small></li>
+  
+    <li><a href="/tags/ref/">ref</a><small>1</small></li>
+  
+    <li><a href="/tags/star/">star</a><small>1</small></li>
+  
+    <li><a href="/tags/thanks/">thanks</a><small>1</small></li>
+  
+    <li><a href="/tags/tip/">tip</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 snigoal
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
