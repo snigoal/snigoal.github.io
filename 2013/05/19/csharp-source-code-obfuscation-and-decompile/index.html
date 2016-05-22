@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Raspbian中omxplayer的使用 | SniGoal</title>
+  <title>C#源代码的混淆与反编译 | SniGoal</title>
   <meta name="author" content="snigoal">
   
-  <meta name="description" content="播放omxplayer -o hdmi filename
-快捷键1                    加速2                    减速j                     上一条音轨k                    下一条音轨i                  ">
+  <meta name="description" content="C#是为微软在.NET平台下主推的开发语言，其运行模式借鉴了JAVA，运行于.NET Framework之上，编译时C#代码被编译成一种中间语言。这种中间语言易于反编译，这就导致C#应用十分容易反编译，也就是源代码的泄露。  
+只要开源就不存在这个问题，但手头的项目不允许开源，安全起见查找了如何加密">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Raspbian中omxplayer的使用"/>
+  <meta property="og:title" content="C#源代码的混淆与反编译"/>
   <meta property="og:site_name" content="SniGoal"/>
 
   
@@ -51,40 +51,36 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2012-12-15T14:02:52.000Z"><a href="/2012/12/15/22/">2012-12-15</a></time>
+        <time datetime="2013-05-18T16:03:09.000Z"><a href="/2013/05/19/csharp-source-code-obfuscation-and-decompile/">2013-05-19</a></time>
       
       
   
-    <h1 class="title">Raspbian中omxplayer的使用</h1>
+    <h1 class="title">C#源代码的混淆与反编译</h1>
   
 
     </header>
     <div class="entry">
       
-        <p><strong>播放</strong><br>omxplayer -o hdmi filename</p>
-<p><strong>快捷键</strong><br>1                    加速<br>2                    减速<br>j                     上一条音轨<br>k                    下一条音轨<br>i                     上一节<br>o                    下一节<br>n                    上一条字幕轨<br>m                   下一条字幕轨<br>s                    显示/不显示字幕<br>q                    退出<br>space/p         暂停/继续</p>
-<ul>
-<li>减小音量</li>
-</ul>
-<ul>
-<li>增加音量<br>left                 后退30<br>right               前进30<br>up                  后退600<br>down             前进600</li>
-</ul>
-<p>ref:<a href="http://www.leiphone.com/raspberry-pi-hands-on.html" target="_blank" rel="external">http://www.leiphone.com/raspberry-pi-hands-on.html</a><br>ref:<a href="http://www.cnblogs.com/snigoal/archive/2012/10/07/2714301.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/10/07/2714301.html</a></p>
+        <p>C#是为微软在.NET平台下主推的开发语言，其运行模式借鉴了JAVA，运行于.NET Framework之上，编译时C#代码被编译成一种中间语言。这种中间语言易于反编译，这就导致C#应用十分容易反编译，也就是源代码的泄露。  </p>
+<p>只要开源就不存在这个问题，但手头的项目不允许开源，安全起见查找了如何加密C#源代码。  </p>
+<p>主流的方式是加密和混淆，基本上有字符串加密、名称混淆、流程混淆。前两个通过降低代码的可阅读性来提高反编译时间成本，实现机密。第三个本人没有深究其内在机制。  </p>
+<p>初选定下使用Dotfuscator，因为这个方案网上推荐的最多，但是实施中遇到很多问题。这里需要说明下当前的项目是一个Form调用一个DLL，所以两个文件一起进行混淆，否则调用会出问题。Dotfuscator在进行两个文件混淆时总是不能通过。时间关系，寻找其它方案。  </p>
+<p>后找到.NET Reactor，免安装，无需注册，两个文件混淆也很容易，混淆时勾选[NecroBit®]很快解决了问题。混淆后，使用.NET Reflector反编译，核心算法均无法看到，外部调用的对象及其公有方法的名称未改变，应用正常工作。  </p>
+<h2 id="使用-NET_Reactor">使用.NET Reactor</h2><p>介绍及下载<a href="http://www.cnblogs.com/saptechnique/archive/2009/09/12/1565152.html" target="_blank" rel="external">http://www.cnblogs.com/saptechnique/archive/2009/09/12/1565152.html</a></p>
+<p>需要说明的是勾选Obfuscation仅混淆私有成员和私有方法；勾选NecroBit®会隐藏公有方法的内容，保护强度提高很多。</p>
+<h2 id="使用-NET_Reflector">使用.NET Reflector</h2><p>官网可试用<a href="http://www.red-gate.com/products/dotnet-development/reflector/" target="_blank" rel="external">http://www.red-gate.com/products/dotnet-development/reflector</a></p>
+<p>打开软件首先选择.NET Framework版本，然后选择需要反编译的文件。</p>
+<p>刚开始很奇怪混淆与反编译软件怎么没有开源产品，后来想明白了这种反开源的产品怎么会开源呢？也许还与C#程序员的数量有关。</p>
 
       
     </div>
     <footer>
       
         
-  
-  <div class="categories">
-    <a href="/categories/RaspberryPi/">RaspberryPi</a>
-  </div>
-
         
   
   <div class="tags">
-    <a href="/tags/Linux/">Linux</a>, <a href="/tags/RaspberryPi/">RaspberryPi</a>
+    <a href="/tags/csharp/">csharp</a>
   </div>
 
         
@@ -127,7 +123,7 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://www.snigoal.com/2012/12/15/22/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://www.snigoal.com/2013/05/19/csharp-source-code-obfuscation-and-decompile/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>
@@ -154,7 +150,7 @@
   
     <li><a href="/categories/Oracle/">Oracle</a><small>1</small></li>
   
-    <li><a href="/categories/RaspberryPi/">RaspberryPi</a><small>4</small></li>
+    <li><a href="/categories/RaspberryPi/">RaspberryPi</a><small>3</small></li>
   
     <li><a href="/categories/未分类/">未分类</a><small>3</small></li>
   
