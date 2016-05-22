@@ -49,21 +49,33 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-03-19T07:59:15.000Z"><a href="/2013/03/19/c-e8-b0-83-e7-94-a8exe/">2013-03-19</a></time>
+        <time datetime="2013-03-19T07:59:15.000Z"><a href="/2013/03/19/csharo-call-exe/">2013-03-19</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/03/19/c-e8-b0-83-e7-94-a8exe/">C#调用exe</a></h1>
+    <h1 class="title"><a href="/2013/03/19/csharo-call-exe/">C#调用exe</a></h1>
   
 
     </header>
     <div class="entry">
       
         <p>在C#中，通过Process类来进行进程操作。 Process类在System.Diagnostics包中。</p>
-<p>#DEMO1<br>using System.Diagnostics;<br>Process p = Process.Start(“notepad.exe”);<br>p.WaitForExit();//关键</p>
-<p>#DEMO2<br>using System.Diagnostics;<br>Process p = new Process();<br>p.StartInfo.Arguments = “”;<br>p.StartInfo.CreateNoWindow = true;//不创建窗口<br>p.StartInfo.UseShellExecute = false;<br>p.StartInfo.FileName = “notepad.exe”;<br>if (File.Exists(“notepad.exe”))<br>{<br>p.Start();<br>p.WaitForExit();<br>}<br>//如果调用控制台程序，该例不会出现黑窗口。</p>
-<p>&nbsp;</p>
-
+<h1 id="DEMO1">DEMO1</h1><pre><code><span class="keyword">using</span> System.Diagnostics;
+Process p = Process.Start(<span class="string">"notepad.exe"</span>);
+p.WaitForExit();<span class="comment">//关键</span>
+</code></pre><h1 id="DEMO2">DEMO2</h1><pre><code><span class="keyword">using</span> System.Diagnostics;
+Process p = <span class="keyword">new</span> Process();
+p.StartInfo.Arguments = <span class="string">""</span>;
+p.StartInfo.CreateNoWindow = <span class="literal">true</span>;<span class="comment">//不创建窗口</span>
+p.StartInfo.UseShellExecute = <span class="literal">false</span>;
+p.StartInfo.FileName = <span class="string">"notepad.exe"</span>;
+<span class="keyword">if</span> (File.Exists(<span class="string">"notepad.exe"</span>))
+{
+p.Start();
+p.WaitForExit();
+}
+<span class="comment">//如果调用控制台程序，该例不会出现黑窗口。</span>
+</code></pre>
       
     </div>
     <footer>
@@ -95,12 +107,17 @@
     </header>
     <div class="entry">
       
-        <p>笔者近段时间使用了windows平台上免费的fortran编译器，接触了三种：1.intel fortran compiler；2.PGI fortran compiler；3.G95。</p>
+        <p>笔者近段时间使用了windows平台上免费的fortran编译器，接触了三种：</p>
+<ol>
+<li>intel fortran compiler；</li>
+<li>PGI fortran compiler；</li>
+<li>G95。</li>
+</ol>
 <p>前两种都是商业化的fortran编译器，可通过申请试用licence免费使用。申请licence的复杂程度intel小于PGI。intel的只需要注册用户就可以立刻拿到licence，而PGI的需要自己发邮件联系销售代表（回应周期未亲自测算）。两者都支持visual studio，易用性能够保证。安装文件均超过300MB，不可能立刻上手使用。</p>
 <p>G95是开源项目，下载安装上手使用非常快捷。困难在于只能使用命令行操作。初学者做小的项目还是可以的。</p>
-<p>G95在windows下编译生成可执行程序（.exe）<br>g95 -o [appname].exe [fortranfile1] [fortranfile2]</p>
-<p>g95 official website <a href="http://www.g95.org/" target="_blank" rel="external">http://www.g95.org/
-</a>g95 manual <a href="http://ftp.g95.org/G95Manual.pdf" target="_blank" rel="external">http://ftp.g95.org/G95Manual.pdf</a></p>
+<p>G95在windows下编译生成可执行程序（.exe）  </p>
+<pre><code><span class="tag">g95</span> <span class="tag">-o</span> <span class="attr_selector">[appname]</span><span class="class">.exe</span> <span class="attr_selector">[fortranfile1]</span> <span class="attr_selector">[fortranfile2]</span>
+</code></pre><p>g95 official website <a href="http://www.g95.org/" target="_blank" rel="external">http://www.g95.org/</a><br>g95 manual <a href="http://ftp.g95.org/G95Manual.pdf" target="_blank" rel="external">http://ftp.g95.org/G95Manual.pdf</a>  </p>
 
       
     </div>
@@ -192,21 +209,22 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-02-06T17:25:58.000Z"><a href="/2013/02/07/e8-a7-a3-e5-86-b3-ef-bc-9aerror-ld-so-object-liblibcwait-so-from-etcld-so-preload-cannot-be-preloaded-ignored/">2013-02-07</a></time>
+        <time datetime="2013-02-06T17:25:58.000Z"><a href="/2013/02/07/error-ld-so-object-liblibcwait-so-from-etcld-so-preload-cannot-be-preloaded-ignored/">2013-02-07</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/02/07/e8-a7-a3-e5-86-b3-ef-bc-9aerror-ld-so-object-liblibcwait-so-from-etcld-so-preload-cannot-be-preloaded-ignored/">解决：ERROR: ld.so: object ‘/lib/libcwait.so’ from /etc/ld.so.preload cannot be preloaded: ignored.</a></h1>
+    <h1 class="title"><a href="/2013/02/07/error-ld-so-object-liblibcwait-so-from-etcld-so-preload-cannot-be-preloaded-ignored/">解决：ERROR: ld.so: object ‘/lib/libcwait.so’ from /etc/ld.so.preload cannot be</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>在RH Linux AS4 x86-64 安装Oracle9.2.0.4前打补丁Patch 4198954中的compat-libcwait-2.1-1.i386.rpm 报如下的错误：<br>[root@oracle8 oracle]# rpm -ivh compat-oracle-rhel4-1.0-5.i386.rpm<br>ERROR: ld.so: object ‘/lib/libcwait.so’ from /etc/ld.so.preload cannot be preloaded: ignore</p>
+        <p>在RH Linux AS4 x86-64 安装Oracle9.2.0.4前打补丁Patch 4198954中的compat-libcwait-2.1-1.i386.rpm 报如下的错误：<br>    [root@oracle8 oracle]# rpm -ivh compat-oracle-rhel4-1.0-5.i386.rpm<br>    ERROR: ld.so: object ‘/lib/libcwait.so’ from /etc/ld.so.preload cannot be preloaded: ignore</p>
 <p>Google找到解决办法：</p>
-<h1 id="echo_“”_&gt;_/etc/ld-so-preload">echo “” &gt; /etc/ld.so.preload</h1><p>问题原因是64位系统没有这个文件导致报错</p>
-<p>ref:<a href="http://blog.deepseabug.com/?p=71" target="_blank" rel="external">http://blog.deepseabug.com/?p=71</a></p>
-<p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/17/2596569.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/07/17/2596569.html</a></p>
+<pre><code><span class="preprocessor"># echo <span class="string">""</span> &amp;gt<span class="comment">; /etc/ld.so.preload</span></span>
+</code></pre><p>问题原因是64位系统没有这个文件导致报错</p>
+<p>ref:<a href="http://blog.deepseabug.com/?p=71" target="_blank" rel="external">http://blog.deepseabug.com/?p=71</a>  </p>
+<p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/17/2596569.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/07/17/2596569.html</a>  </p>
 
       
     </div>
@@ -229,22 +247,30 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-02-06T17:19:39.000Z"><a href="/2013/02/07/oracle-e9-9a-8flinux-e7-b3-bb-e7-bb-9f-e8-87-aa-e5-8a-a8-e5-90-af-e5-8a-a8/">2013-02-07</a></time>
+        <time datetime="2013-02-06T17:19:39.000Z"><a href="/2013/02/07/self-lauch-oracle-in-linux/">2013-02-07</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/02/07/oracle-e9-9a-8flinux-e7-b3-bb-e7-bb-9f-e8-87-aa-e5-8a-a8-e5-90-af-e5-8a-a8/">Oracle随Linux系统自动启动</a></h1>
+    <h1 class="title"><a href="/2013/02/07/self-lauch-oracle-in-linux/">Oracle随Linux系统自动启动</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>1.修改组策略<br>将/etc/selinux/config中的SELINUX=[permissive|enforcing|disabled]改为<br>SELINUX=disabled</p>
-<p>2.修改oratab<br>将/etc/oratab中的<a href="[$oracle_home]:Y">oracle_sid</a>:[$oracle_home]:N改为</p>
-<p>3.复制init<a href="[$oracle_home]:Y">oracle_sid</a>.ora文件<br>将[$oracle_base]/admin/<a href="[$oracle_home]:Y">oracle_sid</a>/pfile下的以init<a href="[$oracle_home]:Y">oracle_sid</a>.ora开头的文件复制到[$oracle_home]/dbs下，并更名为init<a href="[$oracle_home]:Y">oracle_sid</a>.ora</p>
-<p>4.添加自启动命令<br>在/etc/rc.d/rc.local中添加下面的内容</p>
-<h1 id="start_oracle">start oracle</h1><p>su - oracle -c ‘lsnrctl start’<br>su - oracle -c ‘dbstart’</p>
-<p>5.测试<br>执行rc.local测试一下</p>
+        <p>##　1.修改组策略<br>将/etc/selinux/config中的  </p>
+<pre><code>SELINUX=[permissive|<span class="string">enforcing</span>|<span class="string">disabled]</span>
+</code></pre><p>改为  </p>
+<pre><code><span class="attribute">SELINUX</span>=<span class="string">disabled</span>
+</code></pre><h2 id="2-修改oratab">2.修改oratab</h2><p>将/etc/oratab中的</p>
+<pre><code>[oracle_sid]:[<span class="variable">$oracle</span>_home]:N
+</code></pre><p>改为</p>
+<pre><code>[oracle_sid]:[<span class="variable">$oracle</span>_home]:Y
+</code></pre><h2 id="3-复制init[oracle_sid]-ora文件">3.复制init[oracle_sid].ora文件</h2><p>将[$oracle_base]/admin/[oracle_sid]/pfile下的以init[oracle_sid].ora开头的文件复制到[$oracle_home]/dbs下，并更名为init[oracle_sid].ora</p>
+<h2 id="4-添加自启动命令">4.添加自启动命令</h2><p>在/etc/rc.d/rc.local中添加下面的内容</p>
+<pre><code># <span class="operator"><span class="keyword">start</span> <span class="keyword">oracle</span>
+su - <span class="keyword">oracle</span> -<span class="keyword">c</span> <span class="string">'lsnrctl start'</span>
+su - <span class="keyword">oracle</span> -<span class="keyword">c</span> <span class="string">'dbstart'</span></span>
+</code></pre><p>##5.测试<br>执行rc.local测试一下</p>
 <p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/21/2602122.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/07/21/2602122.html</a></p>
 
       
@@ -268,18 +294,21 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-02-06T17:15:07.000Z"><a href="/2013/02/07/linux-e4-b8-8b-e9-87-8d-e7-bd-aeoracle-e7-ae-a1-e7-90-86-e5-93-a1-e5-af-86-e7-a2-bc/">2013-02-07</a></time>
+        <time datetime="2013-02-06T17:15:07.000Z"><a href="/2013/02/07/reset-oracle-password-of-administrator-in-linux/">2013-02-07</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/02/07/linux-e4-b8-8b-e9-87-8d-e7-bd-aeoracle-e7-ae-a1-e7-90-86-e5-93-a1-e5-af-86-e7-a2-bc/">Linux下重置Oracle管理員密碼</a></h1>
+    <h1 class="title"><a href="/2013/02/07/reset-oracle-password-of-administrator-in-linux/">Linux下重置Oracle管理員密碼</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>$&gt;sqlplus /nolog<br>SQL&gt;connect /as sysdba<br>SQL&gt;alter user sys identified by 新密碼;<br>SQL&gt;alter user system identified by 新密碼;</p>
-<p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/21/2603003.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/07/21/2603003.html</a></p>
+        <pre><code>$&gt; sqlplus /nolog
+SQL&gt; connect /<span class="keyword">as</span> sysdba
+SQL&gt; alter user sys identified <span class="keyword">by</span> [新密碼];
+SQL&gt; alter user system identified <span class="keyword">by</span> [新密碼];
+</code></pre><p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/21/2603003.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/07/21/2603003.html</a></p>
 
       
     </div>
@@ -302,20 +331,20 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-02-06T17:09:03.000Z"><a href="/2013/02/07/rhel4u3oracle9-2-0-4jdk1-5-0-06apachetomcat5-5-25-e4-b8-8b-e8-bd-bd-e5-9c-b0-e5-9d-80/">2013-02-07</a></time>
+        <time datetime="2013-02-06T17:09:03.000Z"><a href="/2013/02/07/download-rhel4-oracle9-jdk1-5-0-06-apache-tomcat5-5-25/">2013-02-07</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/02/07/rhel4u3oracle9-2-0-4jdk1-5-0-06apachetomcat5-5-25-e4-b8-8b-e8-bd-bd-e5-9c-b0-e5-9d-80/">RHEL4/Oracle9/JDK1.5/Tomcat5.5下载地址</a></h1>
+    <h1 class="title"><a href="/2013/02/07/download-rhel4-oracle9-jdk1-5-0-06-apache-tomcat5-5-25/">RHEL4/Oracle9/JDK1.5/Tomcat5.5下载地址</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p><strong>rhel4 u3</strong><br>(Red Hat Enterprise Linux AS release 4 (Nahant Update 3))<br><a href="http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc1.iso" target="_blank" rel="external">http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc1.iso</a><br><a href="http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc2.iso" target="_blank" rel="external">http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc2.iso</a><br><a href="http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc3.iso" target="_blank" rel="external">http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc3.iso</a><br><a href="http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc4.iso" target="_blank" rel="external">http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc4.iso</a><br><strong>oracle 92040
-</strong><a href="http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk1.cpio.gz" target="_blank" rel="external">http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk1.cpio.gz</a><br><a href="http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk2.cpio.gz" target="_blank" rel="external">http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk2.cpio.gz</a><br><a href="http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk3.cpio.gz" target="_blank" rel="external">http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk3.cpio.gz</a><br><strong>java 1.5.0_06
-</strong><a href="http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase5-419410.html#jdk-1.5.0_06-oth-JPR" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase5-419410.html#jdk-1.5.0_06-oth-JPR</a><br><strong>tomcat 5.5.25
-</strong><a href="http://archive.apache.org/dist/tomcat/tomcat-5/v5.5.25/bin/" target="_blank" rel="external">http://archive.apache.org/dist/tomcat/tomcat-5/v5.5.25/bin/</a></p>
+        <h2 id="rhel4_u3">rhel4 u3</h2><p>(Red Hat Enterprise Linux AS release 4 (Nahant Update 3))<br><a href="http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc1.iso" target="_blank" rel="external">http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc1.iso</a><br><a href="http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc2.iso" target="_blank" rel="external">http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc2.iso</a><br><a href="http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc3.iso" target="_blank" rel="external">http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc3.iso</a><br><a href="http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc4.iso" target="_blank" rel="external">http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc4.iso</a></p>
+<h2 id="oracle_92040">oracle 92040</h2><p><a href="http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk1.cpio.gz" target="_blank" rel="external">http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk1.cpio.gz</a><br><a href="http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk2.cpio.gz" target="_blank" rel="external">http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk2.cpio.gz</a><br><a href="http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk3.cpio.gz" target="_blank" rel="external">http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk3.cpio.gz</a>  </p>
+<h2 id="java_1-5-0_06">java 1.5.0_06</h2><p><a href="http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase5-419410.html#jdk-1.5.0_06-oth-JPR" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase5-419410.html#jdk-1.5.0_06-oth-JPR</a>  </p>
+<h2 id="tomcat_5-5-25">tomcat 5.5.25</h2><p><a href="http://archive.apache.org/dist/tomcat/tomcat-5/v5.5.25/bin/" target="_blank" rel="external">http://archive.apache.org/dist/tomcat/tomcat-5/v5.5.25/bin/</a>  </p>
 <p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/28/2613194.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/07/28/2613194.html</a></p>
 
       
@@ -339,18 +368,27 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-02-06T17:06:50.000Z"><a href="/2013/02/07/oracle9i-e4-b8-ad-e6-b7-bb-e5-8a-a0-e8-87-aa-e5-a2-9e-e8-a7-a6-e5-8f-91-e5-99-a8/">2013-02-07</a></time>
+        <time datetime="2013-02-06T17:06:50.000Z"><a href="/2013/02/07/add-increment-trigger-in-oracle9i/">2013-02-07</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/02/07/oracle9i-e4-b8-ad-e6-b7-bb-e5-8a-a0-e8-87-aa-e5-a2-9e-e8-a7-a6-e5-8f-91-e5-99-a8/">Oracle9i中添加自增触发器</a></h1>
+    <h1 class="title"><a href="/2013/02/07/add-increment-trigger-in-oracle9i/">Oracle9i中添加自增触发器</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>CREATE OR REPLACE TRIGGER [trigger_name]<br>BEFORE insert ON [table_name]<br>FOR EACH ROW<br>declare next_auto_no number;<br>begin<br>select [Sequence_name].nextval<br>into next_auto_no<br>from dual;<br>:new.[column_name]:=next_auto_no;<br>end;</p>
-<p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/28/2613200.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/07/28/2613200.html</a></p>
+        <pre><code><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">TRIGGER</span> [trigger_name]
+<span class="keyword">BEFORE</span> <span class="keyword">insert</span> <span class="keyword">ON</span> [table_name]
+<span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span>
+<span class="keyword">declare</span> next_auto_no <span class="built_in">number</span>;</span>
+<span class="operator"><span class="keyword">begin</span>
+<span class="keyword">select</span> [Sequence_name].<span class="keyword">nextval</span>
+<span class="keyword">into</span> next_auto_no
+<span class="keyword">from</span> dual;</span>
+:new.[column_name]:=next_auto_no;
+<span class="operator"><span class="keyword">end</span>;</span>
+</code></pre><p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/28/2613200.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/07/28/2613200.html</a></p>
 
       
     </div>
@@ -373,19 +411,19 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-02-06T17:00:56.000Z"><a href="/2013/02/07/e5-88-a0-e9-99-a4sd-e5-8d-a1-e7-9a-84-e5-88-86-e5-8c-ba/">2013-02-07</a></time>
+        <time datetime="2013-02-06T17:00:56.000Z"><a href="/2013/02/07/delete-sd-partition-for-raspberrypi/">2013-02-07</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/02/07/e5-88-a0-e9-99-a4sd-e5-8d-a1-e7-9a-84-e5-88-86-e5-8c-ba/">删除SD卡的分区</a></h1>
+    <h1 class="title"><a href="/2013/02/07/delete-sd-partition-for-raspberrypi/">删除SD卡的分区</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>使用win32diskimager为Raspberry Pi在SD上做系统后，windows系统只能认出引导分区。</p>
-<p>要在windows下释放SD的所有空间，使用windows自身的磁盘管理行不通，使用Acronis Disk Director Suite删除SD中的分区（操作完成后需要提交才能生效）即可。</p>
-<p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/10/29/2744650.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/10/29/2744650.html</a></p>
+        <p>使用win32diskimager为Raspberry Pi在SD上做系统后，windows系统只能认出引导分区。  </p>
+<p>要在windows下释放SD的所有空间，使用windows自身的磁盘管理行不通，使用Acronis Disk Director Suite删除SD中的分区（操作完成后需要提交才能生效）即可。  </p>
+<p>ref：<a href="http://www.cnblogs.com/snigoal/archive/2012/10/29/2744650.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/10/29/2744650.html</a></p>
 
       
     </div>
@@ -408,11 +446,11 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-01-05T15:04:14.000Z"><a href="/2013/01/05/nokia-lumia-710-e5-88-b7windowsphone-7-8/">2013-01-05</a></time>
+        <time datetime="2013-01-05T15:04:14.000Z"><a href="/2013/01/05/update-nokia-lumia-710-with-windows-phone-7-8/">2013-01-05</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/01/05/nokia-lumia-710-e5-88-b7windowsphone-7-8/">Nokia Lumia 710刷WindowsPhone 7.8</a></h1>
+    <h1 class="title"><a href="/2013/01/05/update-nokia-lumia-710-with-windows-phone-7-8/">Nokia Lumia 710刷WindowsPhone 7.8</a></h1>
   
 
     </header>
@@ -420,10 +458,17 @@
       
         <p>Nokia Lumia 710 港行，2012年元旦入手。多次看到Nokia将关闭Firm服务器，迟迟不见官方更新，遂下决心刷机。</p>
 <p>Phone Code: 059M139 (Nokia 710 RM-803 HK Country Variant HK HKCV_Black/Black_v1) .</p>
-<p>相关软件下载地址：<br>NaviFirm: <a href="http://www.symbian-toys.com/download.aspx?file=NaviFirmPlus_1.7.zip" target="_blank" rel="external">http://www.symbian-toys.com/download.aspx?file=NaviFirmPlus_1.7.zip</a><br>Nokia Care Suit: <a href="http://down.tech.sina.com.cn/content/56347.html" target="_blank" rel="external">http://down.tech.sina.com.cn/content/56347.html</a><br>WinUSB Drivers: <a href="http://dl.dbank.com/c0q7uwzz59" target="_blank" rel="external">http://dl.dbank.com/c0q7uwzz59</a></p>
+<h2 id="相关软件下载地址">相关软件下载地址</h2><p>NaviFirm: <a href="http://www.symbian-toys.com/download.aspx?file=NaviFirmPlus_1.7.zip" target="_blank" rel="external">http://www.symbian-toys.com/download.aspx?file=NaviFirmPlus_1.7.zip</a><br>Nokia Care Suit: <a href="http://down.tech.sina.com.cn/content/56347.html" target="_blank" rel="external">http://down.tech.sina.com.cn/content/56347.html</a><br>WinUSB Drivers: <a href="http://dl.dbank.com/c0q7uwzz59" target="_blank" rel="external">http://dl.dbank.com/c0q7uwzz59</a></p>
 <p>通过NaviFirm下载了两个ROM，059M161和059P2X7。059M161是亚太版；059P2X7是国行版。刷机使用的是国行版ROM，即059P2X7，该ROM自带Nokia贴牌浏览器，QQ，支付宝等应用。</p>
 <p>请先备份手机中有用信息，如联系人、图片、短信、微信聊天记录等。</p>
-<p>流程概要<br>1.安装NaviFirm，通过NaviFirm下载ROM；<br>2.安装Nokia Care Suit，软件界面右下角将工作模式改为offline，每次重新打开软件都需要更改；<br>3.将手机连接到电脑，如果Nokia Care Suit不能识别手机，则安装WinUSB Drivers，这个驱动决定了ROM能否写进手机，安装成功后出现图1<br>4.将下载到的ROM中的.dcp/.vpl/.bin中的code（本例为059P2X7）改为本机code（本例为059M139）；<br>5.Nokia Care Suit左下角，programming &gt; refurbish &gt; start。如果falshing失败，重启电脑或者重启软件（工作模式改为offline）和重新连接手机后再试。<br>6.出现图2则写入成功完成，享受WP8的mini tile吧！</p>
+<h2 id="流程概要">流程概要</h2><ol>
+<li>安装NaviFirm，通过NaviFirm下载ROM；</li>
+<li>安装Nokia Care Suit，软件界面右下角将工作模式改为offline，每次重新打开软件都需要更改；</li>
+<li>将手机连接到电脑，如果Nokia Care Suit不能识别手机，则安装WinUSB Drivers，这个驱动决定了ROM能否写进手机，安装成功后出现图1</li>
+<li>将下载到的ROM中的.dcp/.vpl/.bin中的code（本例为059P2X7）改为本机code（本例为059M139）；</li>
+<li>Nokia Care Suit左下角，programming &gt; refurbish &gt; start。如果falshing失败，重启电脑或者重启软件（工作模式改为offline）和重新连接手机后再试。</li>
+<li>出现图2则写入成功完成，享受WP8的mini tile吧！</li>
+</ol>
 <p><img src="http://ww2.sinaimg.cn/large/bf1eada3jw1e0j2fspt3kj.jpg" alt="" title="图1"></p>
 <p><img src="http://ww1.sinaimg.cn/large/bf1eada3jw1e0j2gfherlj.jpg" alt="" title="图2"></p>
 
@@ -465,17 +510,11 @@
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Fixit/">Fixit</a><small>1</small></li>
+    <li><a href="/categories/Linux/">Linux</a><small>0</small></li>
   
-    <li><a href="/categories/Linux/">Linux</a><small>4</small></li>
+    <li><a href="/categories/Linux/Oracle/">Oracle</a><small>0</small></li>
   
-    <li><a href="/categories/Linux/Oracle/">Oracle</a><small>3</small></li>
-  
-    <li><a href="/categories/Oracle/">Oracle</a><small>1</small></li>
-  
-    <li><a href="/categories/RaspberryPi/">RaspberryPi</a><small>3</small></li>
-  
-    <li><a href="/categories/未分类/">未分类</a><small>3</small></li>
+    <li><a href="/categories/RaspberryPi/">RaspberryPi</a><small>1</small></li>
   
   </ul>
 </div>
@@ -498,11 +537,9 @@
   
     <li><a href="/tags/book/">book</a><small>1</small></li>
   
-    <li><a href="/tags/c/">c#</a><small>1</small></li>
-  
     <li><a href="/tags/cloud/">cloud</a><small>1</small></li>
   
-    <li><a href="/tags/csharp/">csharp</a><small>1</small></li>
+    <li><a href="/tags/csharp/">csharp</a><small>2</small></li>
   
     <li><a href="/tags/device/">device</a><small>1</small></li>
   

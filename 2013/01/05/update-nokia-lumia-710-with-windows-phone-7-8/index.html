@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>C#调用exe | SniGoal</title>
+  <title>Nokia Lumia 710刷WindowsPhone 7.8 | SniGoal</title>
   <meta name="author" content="snigoal">
   
-  <meta name="description" content="在C#中，通过Process类来进行进程操作。 Process类在System.Diagnostics包中。
-#DEMO1using System.Diagnostics;Process p = Process.Start(“notepad.exe”);p.WaitForExit();//关键
-#D">
+  <meta name="description" content="Nokia Lumia 710 港行，2012年元旦入手。多次看到Nokia将关闭Firm服务器，迟迟不见官方更新，遂下决心刷机。
+Phone Code: 059M139 (Nokia 710 RM-803 HK Country Variant HK HKCV_Black/Black_v1) .
+相">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="C#调用exe"/>
+  <meta property="og:title" content="Nokia Lumia 710刷WindowsPhone 7.8"/>
   <meta property="og:site_name" content="SniGoal"/>
 
   
@@ -52,35 +52,41 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-03-19T07:59:15.000Z"><a href="/2013/03/19/c-e8-b0-83-e7-94-a8exe/">2013-03-19</a></time>
+        <time datetime="2013-01-05T15:04:14.000Z"><a href="/2013/01/05/update-nokia-lumia-710-with-windows-phone-7-8/">2013-01-05</a></time>
       
       
   
-    <h1 class="title">C#调用exe</h1>
+    <h1 class="title">Nokia Lumia 710刷WindowsPhone 7.8</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>在C#中，通过Process类来进行进程操作。 Process类在System.Diagnostics包中。</p>
-<p>#DEMO1<br>using System.Diagnostics;<br>Process p = Process.Start(“notepad.exe”);<br>p.WaitForExit();//关键</p>
-<p>#DEMO2<br>using System.Diagnostics;<br>Process p = new Process();<br>p.StartInfo.Arguments = “”;<br>p.StartInfo.CreateNoWindow = true;//不创建窗口<br>p.StartInfo.UseShellExecute = false;<br>p.StartInfo.FileName = “notepad.exe”;<br>if (File.Exists(“notepad.exe”))<br>{<br>p.Start();<br>p.WaitForExit();<br>}<br>//如果调用控制台程序，该例不会出现黑窗口。</p>
-<p>&nbsp;</p>
+        <p>Nokia Lumia 710 港行，2012年元旦入手。多次看到Nokia将关闭Firm服务器，迟迟不见官方更新，遂下决心刷机。</p>
+<p>Phone Code: 059M139 (Nokia 710 RM-803 HK Country Variant HK HKCV_Black/Black_v1) .</p>
+<h2 id="相关软件下载地址">相关软件下载地址</h2><p>NaviFirm: <a href="http://www.symbian-toys.com/download.aspx?file=NaviFirmPlus_1.7.zip" target="_blank" rel="external">http://www.symbian-toys.com/download.aspx?file=NaviFirmPlus_1.7.zip</a><br>Nokia Care Suit: <a href="http://down.tech.sina.com.cn/content/56347.html" target="_blank" rel="external">http://down.tech.sina.com.cn/content/56347.html</a><br>WinUSB Drivers: <a href="http://dl.dbank.com/c0q7uwzz59" target="_blank" rel="external">http://dl.dbank.com/c0q7uwzz59</a></p>
+<p>通过NaviFirm下载了两个ROM，059M161和059P2X7。059M161是亚太版；059P2X7是国行版。刷机使用的是国行版ROM，即059P2X7，该ROM自带Nokia贴牌浏览器，QQ，支付宝等应用。</p>
+<p>请先备份手机中有用信息，如联系人、图片、短信、微信聊天记录等。</p>
+<h2 id="流程概要">流程概要</h2><ol>
+<li>安装NaviFirm，通过NaviFirm下载ROM；</li>
+<li>安装Nokia Care Suit，软件界面右下角将工作模式改为offline，每次重新打开软件都需要更改；</li>
+<li>将手机连接到电脑，如果Nokia Care Suit不能识别手机，则安装WinUSB Drivers，这个驱动决定了ROM能否写进手机，安装成功后出现图1</li>
+<li>将下载到的ROM中的.dcp/.vpl/.bin中的code（本例为059P2X7）改为本机code（本例为059M139）；</li>
+<li>Nokia Care Suit左下角，programming &gt; refurbish &gt; start。如果falshing失败，重启电脑或者重启软件（工作模式改为offline）和重新连接手机后再试。</li>
+<li>出现图2则写入成功完成，享受WP8的mini tile吧！</li>
+</ol>
+<p><img src="http://ww2.sinaimg.cn/large/bf1eada3jw1e0j2fspt3kj.jpg" alt="" title="图1"></p>
+<p><img src="http://ww1.sinaimg.cn/large/bf1eada3jw1e0j2gfherlj.jpg" alt="" title="图2"></p>
 
       
     </div>
     <footer>
       
         
-  
-  <div class="categories">
-    <a href="/categories/未分类/">未分类</a>
-  </div>
-
         
   
   <div class="tags">
-    <a href="/tags/c/">c#</a>
+    <a href="/tags/Fixit/">Fixit</a>
   </div>
 
         
@@ -123,7 +129,7 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://www.snigoal.com/2013/03/19/c-e8-b0-83-e7-94-a8exe/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://www.snigoal.com/2013/01/05/update-nokia-lumia-710-with-windows-phone-7-8/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>
@@ -142,17 +148,11 @@
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Fixit/">Fixit</a><small>1</small></li>
+    <li><a href="/categories/Linux/">Linux</a><small>0</small></li>
   
-    <li><a href="/categories/Linux/">Linux</a><small>4</small></li>
+    <li><a href="/categories/Linux/Oracle/">Oracle</a><small>0</small></li>
   
-    <li><a href="/categories/Linux/Oracle/">Oracle</a><small>3</small></li>
-  
-    <li><a href="/categories/Oracle/">Oracle</a><small>1</small></li>
-  
-    <li><a href="/categories/RaspberryPi/">RaspberryPi</a><small>3</small></li>
-  
-    <li><a href="/categories/未分类/">未分类</a><small>3</small></li>
+    <li><a href="/categories/RaspberryPi/">RaspberryPi</a><small>1</small></li>
   
   </ul>
 </div>
@@ -175,11 +175,9 @@
   
     <li><a href="/tags/book/">book</a><small>1</small></li>
   
-    <li><a href="/tags/c/">c#</a><small>1</small></li>
-  
     <li><a href="/tags/cloud/">cloud</a><small>1</small></li>
   
-    <li><a href="/tags/csharp/">csharp</a><small>1</small></li>
+    <li><a href="/tags/csharp/">csharp</a><small>2</small></li>
   
     <li><a href="/tags/device/">device</a><small>1</small></li>
   

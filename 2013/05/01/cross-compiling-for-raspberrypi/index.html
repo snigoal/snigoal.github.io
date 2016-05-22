@@ -3,16 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Linux下重置Oracle管理員密碼 | SniGoal</title>
+  <title>配置RaspberryPi交叉编译环境 | SniGoal</title>
   <meta name="author" content="snigoal">
   
-  <meta name="description" content="$&amp;gt;sqlplus /nologSQL&amp;gt;connect /as sysdbaSQL&amp;gt;alter user sys identified by 新密碼;SQL&amp;gt;alter user system identified by 新密碼;
-转自：http://www.cnblogs.">
+  <meta name="description" content="os: ubuntu  
+1.安装交叉编译工具sudo apt-get install gcc-arm-linux-gnueabi
+2.编写测试程序并编译程序源码：  
+#include &amp;amp;lt;stdio.h&amp;amp;gt;
+int main() {
+printf(&quot;Hello World">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Linux下重置Oracle管理員密碼"/>
+  <meta property="og:title" content="配置RaspberryPi交叉编译环境"/>
   <meta property="og:site_name" content="SniGoal"/>
 
   
@@ -51,33 +55,38 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-02-06T17:15:07.000Z"><a href="/2013/02/07/linux-e4-b8-8b-e9-87-8d-e7-bd-aeoracle-e7-ae-a1-e7-90-86-e5-93-a1-e5-af-86-e7-a2-bc/">2013-02-07</a></time>
+        <time datetime="2013-05-01T14:37:52.000Z"><a href="/2013/05/01/cross-compiling-for-raspberrypi/">2013-05-01</a></time>
       
       
   
-    <h1 class="title">Linux下重置Oracle管理員密碼</h1>
+    <h1 class="title">配置RaspberryPi交叉编译环境</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>$&gt;sqlplus /nolog<br>SQL&gt;connect /as sysdba<br>SQL&gt;alter user sys identified by 新密碼;<br>SQL&gt;alter user system identified by 新密碼;</p>
-<p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/21/2603003.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/07/21/2603003.html</a></p>
+        <p>os: ubuntu  </p>
+<h2 id="1-安装交叉编译工具">1.安装交叉编译工具</h2><pre><code><span class="label">sudo</span> apt-<span class="preprocessor">get</span> install gcc-<span class="preprocessor">arm</span>-linux-gnueabi
+</code></pre><h2 id="2-编写测试程序并编译">2.编写测试程序并编译</h2><p>程序源码：  </p>
+<pre><code><span class="preprocessor">#<span class="keyword">include</span> &amp;lt;stdio.h&amp;gt;</span>
+<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{
+<span class="built_in">printf</span>(<span class="string">"Hello World!\n"</span>);
+<span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre><p>编译指令：<br>V<br>    arm-linux-gnueabi-gcc hello.c</p>
+<h2 id="3-在RaspberryPi上测试运行">3.在RaspberryPi上测试运行</h2><p>通过scp命令上传到RaspberryPi上  </p>
+<pre><code>scp <span class="tag">a</span><span class="class">.out</span> pi@[ip]:~/
+</code></pre><h2 id="ref">ref</h2><p>www.neohe.tk/raspberrypi-cross-compile/</p>
 
       
     </div>
     <footer>
       
         
-  
-  <div class="categories">
-    <a href="/categories/Linux/">Linux</a>, <a href="/categories/Linux/Oracle/">Oracle</a>
-  </div>
-
         
   
   <div class="tags">
-    <a href="/tags/Linux/">Linux</a>, <a href="/tags/Oracle/">Oracle</a>
+    <a href="/tags/Linux/">Linux</a>, <a href="/tags/RaspberryPi/">RaspberryPi</a>
   </div>
 
         
@@ -120,7 +129,7 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://www.snigoal.com/2013/02/07/linux-e4-b8-8b-e9-87-8d-e7-bd-aeoracle-e7-ae-a1-e7-90-86-e5-93-a1-e5-af-86-e7-a2-bc/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://www.snigoal.com/2013/05/01/cross-compiling-for-raspberrypi/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>
@@ -139,17 +148,11 @@
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Fixit/">Fixit</a><small>1</small></li>
+    <li><a href="/categories/Linux/">Linux</a><small>0</small></li>
   
-    <li><a href="/categories/Linux/">Linux</a><small>4</small></li>
+    <li><a href="/categories/Linux/Oracle/">Oracle</a><small>0</small></li>
   
-    <li><a href="/categories/Linux/Oracle/">Oracle</a><small>3</small></li>
-  
-    <li><a href="/categories/Oracle/">Oracle</a><small>1</small></li>
-  
-    <li><a href="/categories/RaspberryPi/">RaspberryPi</a><small>3</small></li>
-  
-    <li><a href="/categories/未分类/">未分类</a><small>3</small></li>
+    <li><a href="/categories/RaspberryPi/">RaspberryPi</a><small>1</small></li>
   
   </ul>
 </div>
@@ -172,11 +175,9 @@
   
     <li><a href="/tags/book/">book</a><small>1</small></li>
   
-    <li><a href="/tags/c/">c#</a><small>1</small></li>
-  
     <li><a href="/tags/cloud/">cloud</a><small>1</small></li>
   
-    <li><a href="/tags/csharp/">csharp</a><small>1</small></li>
+    <li><a href="/tags/csharp/">csharp</a><small>2</small></li>
   
     <li><a href="/tags/device/">device</a><small>1</small></li>
   

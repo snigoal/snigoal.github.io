@@ -3,17 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Oracle随Linux系统自动启动 | SniGoal</title>
+  <title>解决：ERROR: ld.so: object ‘/lib/libcwait.so’ from /etc/ld.so.preload cannot be | SniGoal</title>
   <meta name="author" content="snigoal">
   
-  <meta name="description" content="1.修改组策略将/etc/selinux/config中的SELINUX=[permissive|enforcing|disabled]改为SELINUX=disabled
-2.修改oratab将/etc/oratab中的oracle_sid:[$oracle_home]:N改为
-3.复制inito">
+  <meta name="description" content="在RH Linux AS4 x86-64 安装Oracle9.2.0.4前打补丁Patch 4198954中的compat-libcwait-2.1-1.i386.rpm 报如下的错误：    [root@oracle8 oracle]# rpm -ivh compat-oracle-rhel4-1">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Oracle随Linux系统自动启动"/>
+  <meta property="og:title" content="解决：ERROR: ld.so: object ‘/lib/libcwait.so’ from /etc/ld.so.preload cannot be"/>
   <meta property="og:site_name" content="SniGoal"/>
 
   
@@ -52,38 +50,32 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-02-06T17:19:39.000Z"><a href="/2013/02/07/oracle-e9-9a-8flinux-e7-b3-bb-e7-bb-9f-e8-87-aa-e5-8a-a8-e5-90-af-e5-8a-a8/">2013-02-07</a></time>
+        <time datetime="2013-02-06T17:25:58.000Z"><a href="/2013/02/07/error-ld-so-object-liblibcwait-so-from-etcld-so-preload-cannot-be-preloaded-ignored/">2013-02-07</a></time>
       
       
   
-    <h1 class="title">Oracle随Linux系统自动启动</h1>
+    <h1 class="title">解决：ERROR: ld.so: object ‘/lib/libcwait.so’ from /etc/ld.so.preload cannot be</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>1.修改组策略<br>将/etc/selinux/config中的SELINUX=[permissive|enforcing|disabled]改为<br>SELINUX=disabled</p>
-<p>2.修改oratab<br>将/etc/oratab中的<a href="[$oracle_home]:Y">oracle_sid</a>:[$oracle_home]:N改为</p>
-<p>3.复制init<a href="[$oracle_home]:Y">oracle_sid</a>.ora文件<br>将[$oracle_base]/admin/<a href="[$oracle_home]:Y">oracle_sid</a>/pfile下的以init<a href="[$oracle_home]:Y">oracle_sid</a>.ora开头的文件复制到[$oracle_home]/dbs下，并更名为init<a href="[$oracle_home]:Y">oracle_sid</a>.ora</p>
-<p>4.添加自启动命令<br>在/etc/rc.d/rc.local中添加下面的内容</p>
-<h1 id="start_oracle">start oracle</h1><p>su - oracle -c ‘lsnrctl start’<br>su - oracle -c ‘dbstart’</p>
-<p>5.测试<br>执行rc.local测试一下</p>
-<p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/21/2602122.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/07/21/2602122.html</a></p>
+        <p>在RH Linux AS4 x86-64 安装Oracle9.2.0.4前打补丁Patch 4198954中的compat-libcwait-2.1-1.i386.rpm 报如下的错误：<br>    [root@oracle8 oracle]# rpm -ivh compat-oracle-rhel4-1.0-5.i386.rpm<br>    ERROR: ld.so: object ‘/lib/libcwait.so’ from /etc/ld.so.preload cannot be preloaded: ignore</p>
+<p>Google找到解决办法：</p>
+<pre><code><span class="preprocessor"># echo <span class="string">""</span> &amp;gt<span class="comment">; /etc/ld.so.preload</span></span>
+</code></pre><p>问题原因是64位系统没有这个文件导致报错</p>
+<p>ref:<a href="http://blog.deepseabug.com/?p=71" target="_blank" rel="external">http://blog.deepseabug.com/?p=71</a>  </p>
+<p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/17/2596569.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/07/17/2596569.html</a>  </p>
 
       
     </div>
     <footer>
       
         
-  
-  <div class="categories">
-    <a href="/categories/Linux/">Linux</a>, <a href="/categories/Linux/Oracle/">Oracle</a>
-  </div>
-
         
   
   <div class="tags">
-    <a href="/tags/Linux/">Linux</a>, <a href="/tags/Oracle/">Oracle</a>
+    <a href="/tags/Linux/">Linux</a>
   </div>
 
         
@@ -126,7 +118,7 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://www.snigoal.com/2013/02/07/oracle-e9-9a-8flinux-e7-b3-bb-e7-bb-9f-e8-87-aa-e5-8a-a8-e5-90-af-e5-8a-a8/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://www.snigoal.com/2013/02/07/error-ld-so-object-liblibcwait-so-from-etcld-so-preload-cannot-be-preloaded-ignored/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>
@@ -145,17 +137,11 @@
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Fixit/">Fixit</a><small>1</small></li>
+    <li><a href="/categories/Linux/">Linux</a><small>0</small></li>
   
-    <li><a href="/categories/Linux/">Linux</a><small>4</small></li>
+    <li><a href="/categories/Linux/Oracle/">Oracle</a><small>0</small></li>
   
-    <li><a href="/categories/Linux/Oracle/">Oracle</a><small>3</small></li>
-  
-    <li><a href="/categories/Oracle/">Oracle</a><small>1</small></li>
-  
-    <li><a href="/categories/RaspberryPi/">RaspberryPi</a><small>3</small></li>
-  
-    <li><a href="/categories/未分类/">未分类</a><small>3</small></li>
+    <li><a href="/categories/RaspberryPi/">RaspberryPi</a><small>1</small></li>
   
   </ul>
 </div>
@@ -178,11 +164,9 @@
   
     <li><a href="/tags/book/">book</a><small>1</small></li>
   
-    <li><a href="/tags/c/">c#</a><small>1</small></li>
-  
     <li><a href="/tags/cloud/">cloud</a><small>1</small></li>
   
-    <li><a href="/tags/csharp/">csharp</a><small>1</small></li>
+    <li><a href="/tags/csharp/">csharp</a><small>2</small></li>
   
     <li><a href="/tags/device/">device</a><small>1</small></li>
   

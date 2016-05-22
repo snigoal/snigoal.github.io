@@ -59,21 +59,59 @@
     </header>
     <div class="entry">
       
-        <p><strong>#Raspbian从命令行启动</strong><br>sudo raspi-config &gt;&gt; boot_behaviour &gt;&gt; no</p>
-<p><strong>#Raspbian开机自动运行脚本（有点问题）</strong><br>Raspbian(<a href="http://www.raspbian.org/)is" target="_blank" rel="external">http://www.raspbian.org/)is</a> a free operating system based on Debian optimized for the Raspberry Pi hardware.开机自动运行的方法与Debian类似。<br>以下内容摘自<a href="http://penglei.name/html/96.html：" target="_blank" rel="external">http://penglei.name/html/96.html：</a><br>Debian定义了多个运行级别脚本，分别存放在/etc/rc0.d至/etc/rc6.d中，默认级别为5.<br>要增加开机自动运行脚本的方法如下：</p>
-<p>#vi /etc/init.d/rc.local<br>写入你需要运行的脚本，:wq退出</p>
-<h1 id="chmod_+x_/etc/init-d/rc-local_#增加脚本执行权限">chmod +x /etc/init.d/rc.local #增加脚本执行权限</h1><h1 id="update-rc-d_rc-local_start_99_2_3_4_5_-_stop_01_0_1_6_-_#设置启动级别">update-rc.d rc.local start 99 2 3 4 5 . stop 01 0 1 6 . #设置启动级别</h1><p>若要删除脚本的启动级别运行如下命令</p>
-<h1 id="update-rc-d_-f_rc-local_remove">update-rc.d -f rc.local remove</h1><p>ref:<a href="http://penglei.name/html/96.html" target="_blank" rel="external">http://penglei.name/html/96.html</a></p>
-<p><strong>#Raspbian如何显示中文</strong><br>1.将Raspberry Pi连接到网络，在终端中执行下面的命令<br>2.获取并安装文泉驿微米黑字体<br>sudo apt-get install ttf-wqy-microhei<br>3.配置系统字体，首先进入区域设置界面<br>sudo dpkg-reconfigure locales<br>4.用空格键选择四个中文字体zh_CN.GB2312, zh_CN.GB18030, zh_CN GBK, zh_CN.UTF-8,然后确定<br>5.选择zh_CN.UTF-8作为系统环境默认区域设置，然后确定<br>6.重启</p>
-<p><strong>#Raspbian switch to root</strong><br>To execute a command as root, put sudo before the command, for example<br>sudo halt<br>if you want to halt the system.<br>If you wish to become root temporarily, enter the command<br>sudo -s<br>and to leave root mode enter the command<br>exit<br>ref:<a href="http://www.raspberrypi.org/phpBB3/viewtopic.php?f=26&amp;t=13160" target="_blank" rel="external">http://www.raspberrypi.org/phpBB3/viewtopic.php?f=26&amp;t=13160</a><br>ref:<a href="http://www.cnblogs.com/snigoal/archive/2012/09/16/2687319.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/09/16/2687319.html</a></p>
-<p><strong>#Raspian安装Chrome
-</strong>1,wget <a href="http://goo.gl/go5yx" target="_blank" rel="external">http://goo.gl/go5yx</a> -O install.sh<br>2,chmod a+x install.sh<br>3,./install.sh<br>4,chrome -disable-ipv6 &amp; (&amp; for running at background)<br>5,error loading libsmime3.so-&gt;try sudo apt-get update then redo step 3</p>
-<p><strong>#Raspian安装中文输入法SCIM (Smart Common Input</strong> <strong>Method)</strong><br>1,sudo apt-get install scim-pinyin<br>2,if some packages can’t be downloaded, try sudo apt-get update –fix-missing<br>3,run scim and it will run wihle booting.</p>
-<p><strong>#安装Pi Store</strong><br><a href="http://www.raspberrypi.org/archives/2768" target="_blank" rel="external">http://www.raspberrypi.org/archives/2768</a></p>
-<p><strong>#修改root密码
-</strong>sudo passwd root<strong> </strong></p>
-<p><strong>#安装Subversion</strong><br>sudo apt-get install subversion<br>ref:1.<a href="http://www.raspberrypi.org/phpBB3/viewtopic.php?f=30&amp;t=13337" target="_blank" rel="external">http://www.raspberrypi.org/phpBB3/viewtopic.php?f=30&amp;t=13337</a><br>2.<a href="http://www.ha97.com/4467.html" target="_blank" rel="external">http://www.ha97.com/4467.html</a><br>svn over http<br>ref:<a href="http://www.jeremymorgan.com/tutorials/raspberry-pi/raspberry-pi-how-to-svn-server/" target="_blank" rel="external">http://www.jeremymorgan.com/tutorials/raspberry-pi/raspberry-pi-how-to-svn-server/</a></p>
-<p><strong>#安装Git</strong><br>sudo apt-get install git-core<br>ref:<a href="http://quick2wire.com/articles/a-gentle-guide-to-git-and-github/" target="_blank" rel="external">http://quick2wire.com/articles/a-gentle-guide-to-git-and-github/</a></p>
+        <h2 id="Raspbian从命令行启动">Raspbian从命令行启动</h2><pre><code>sudo raspi-config <span class="prompt">&gt;&gt; </span>boot_behaviour &gt;&gt; no
+</code></pre><h2 id="Raspbian开机自动运行脚本（有点问题）">Raspbian开机自动运行脚本（有点问题）</h2><p>Raspbian(<a href="http://www.raspbian.org/)is" target="_blank" rel="external">http://www.raspbian.org/)is</a> a free operating system based on Debian optimized for the Raspberry Pi hardware. </p>
+<p>开机自动运行的方法与Debian类似。<br>以下内容摘自<a href="http://penglei.name/html/96.html：" target="_blank" rel="external">http://penglei.name/html/96.html：</a><br>Debian定义了多个运行级别脚本，分别存放在/etc/rc0.d至/etc/rc6.d中，默认级别为5.<br>要增加开机自动运行脚本的方法如下：  </p>
+<pre><code><span class="variable">#vi</span> /etc/init<span class="built_in">.</span>d/rc<span class="built_in">.</span><span class="built_in">local</span>
+</code></pre><p>写入你需要运行的脚本，:wq退出  </p>
+<pre><code><span class="preprocessor"># chmod +x /etc/init.d/rc.local #增加脚本执行权限</span>
+<span class="preprocessor"># update-rc.d rc.local start <span class="number">99</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> . stop <span class="number">01</span> <span class="number">0</span> <span class="number">1</span> <span class="number">6</span> . #设置启动级别</span>
+</code></pre><p>若要删除脚本的启动级别运行如下命令  </p>
+<pre><code># <span class="operator"><span class="keyword">update</span>-rc.<span class="keyword">d</span> -<span class="keyword">f</span> rc.<span class="keyword">local</span> remove</span>
+</code></pre><p>ref:<a href="http://penglei.name/html/96.html" target="_blank" rel="external">http://penglei.name/html/96.html</a></p>
+<h1 id="Raspbian如何显示中文">Raspbian如何显示中文</h1><ol>
+<li>将Raspberry Pi连接到网络，在终端中执行下面的命令</li>
+<li><p>获取并安装文泉驿微米黑字体  </p>
+<p> sudo apt-get install ttf-wqy-microhei</p>
+</li>
+<li><p>配置系统字体，首先进入区域设置界面</p>
+<p> sudo dpkg-reconfigure locales</p>
+</li>
+<li><p>用空格键选择四个中文字体zh_CN.GB2312, zh_CN.GB18030, zh_CN GBK, zh_CN.UTF-8,然后确定</p>
+</li>
+<li>选择zh_CN.UTF-8作为系统环境默认区域设置，然后确定</li>
+<li>重启</li>
+</ol>
+<h2 id="Raspbian_switch_to_root">Raspbian switch to root</h2><p>To execute a command as root, put sudo before the command, for example  </p>
+<pre><code><span class="title">sudo</span> halt
+</code></pre><p>if you want to halt the system.<br>If you wish to become root temporarily, enter the command  </p>
+<pre><code>sudo <span class="operator">-s</span>
+</code></pre><p>and to leave root mode enter the command  </p>
+<pre><code><span class="keyword">exit</span>
+</code></pre><p>ref:<a href="http://www.raspberrypi.org/phpBB3/viewtopic.php?f=26&amp;t=13160" target="_blank" rel="external">http://www.raspberrypi.org/phpBB3/viewtopic.php?f=26&amp;t=13160</a><br>ref:<a href="http://www.cnblogs.com/snigoal/archive/2012/09/16/2687319.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/09/16/2687319.html</a></p>
+<h2 id="Raspian安装Chrome">Raspian安装Chrome</h2><ol>
+<li><code>wget http://goo.gl/go5yx -O install.sh</code></li>
+<li><code>chmod a+x install.sh</code></li>
+<li><code>./install.sh</code></li>
+<li><code>chrome -disable-ipv6 &amp;</code> (<code>&amp;</code> for running at background)</li>
+<li>error loading libsmime3.so try <code>sudo apt-get update then redo step 3</code></li>
+</ol>
+<h2 id="Raspian安装中文输入法SCIM_(Smart_Common_Input_Method)">Raspian安装中文输入法SCIM (Smart Common Input Method)</h2><ol>
+<li><code>sudo apt-get install scim-pinyin</code></li>
+<li>if some packages can’t be downloaded, try <code>sudo apt-get update --fix-missing</code></li>
+<li>run scim and it will run wihle booting.</li>
+</ol>
+<h2 id="安装Pi_Store">安装Pi Store</h2><p><a href="http://www.raspberrypi.org/archives/2768" target="_blank" rel="external">http://www.raspberrypi.org/archives/2768</a></p>
+<h2 id="修改root密码">修改root密码</h2><pre><code><span class="title">sudo</span> passwd root
+</code></pre><h2 id="安装Subversion">安装Subversion</h2><pre><code>sudo apt-<span class="keyword">get</span> install subversion
+</code></pre><p>ref:  </p>
+<ol>
+<li><a href="http://www.raspberrypi.org/phpBB3/viewtopic.php?f=30&amp;t=13337" target="_blank" rel="external">http://www.raspberrypi.org/phpBB3/viewtopic.php?f=30&amp;t=13337</a></li>
+<li><a href="http://www.ha97.com/4467.html" target="_blank" rel="external">http://www.ha97.com/4467.html</a></li>
+</ol>
+<h2 id="svn_over_http">svn over http</h2><p>ref:<a href="http://www.jeremymorgan.com/tutorials/raspberry-pi/raspberry-pi-how-to-svn-server/" target="_blank" rel="external">http://www.jeremymorgan.com/tutorials/raspberry-pi/raspberry-pi-how-to-svn-server/</a></p>
+<h2 id="安装Git">安装Git</h2><pre><code>sudo apt-<span class="keyword">get</span> install git-core
+</code></pre><p>ref:<a href="http://quick2wire.com/articles/a-gentle-guide-to-git-and-github/" target="_blank" rel="external">http://quick2wire.com/articles/a-gentle-guide-to-git-and-github/</a></p>
 
       
     </div>
@@ -226,17 +264,11 @@
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Fixit/">Fixit</a><small>1</small></li>
+    <li><a href="/categories/Linux/">Linux</a><small>0</small></li>
   
-    <li><a href="/categories/Linux/">Linux</a><small>4</small></li>
+    <li><a href="/categories/Linux/Oracle/">Oracle</a><small>0</small></li>
   
-    <li><a href="/categories/Linux/Oracle/">Oracle</a><small>3</small></li>
-  
-    <li><a href="/categories/Oracle/">Oracle</a><small>1</small></li>
-  
-    <li><a href="/categories/RaspberryPi/">RaspberryPi</a><small>3</small></li>
-  
-    <li><a href="/categories/未分类/">未分类</a><small>3</small></li>
+    <li><a href="/categories/RaspberryPi/">RaspberryPi</a><small>1</small></li>
   
   </ul>
 </div>
@@ -259,11 +291,9 @@
   
     <li><a href="/tags/book/">book</a><small>1</small></li>
   
-    <li><a href="/tags/c/">c#</a><small>1</small></li>
-  
     <li><a href="/tags/cloud/">cloud</a><small>1</small></li>
   
-    <li><a href="/tags/csharp/">csharp</a><small>1</small></li>
+    <li><a href="/tags/csharp/">csharp</a><small>2</small></li>
   
     <li><a href="/tags/device/">device</a><small>1</small></li>
   

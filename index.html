@@ -410,22 +410,28 @@ ssh-agent bash
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-05-01T14:37:52.000Z"><a href="/2013/05/01/e9-85-8d-e7-bd-aeraspberrypi-e4-ba-a4-e5-8f-89-e7-bc-96-e8-af-91-e7-8e-af-e5-a2-83/">2013-05-01</a></time>
+        <time datetime="2013-05-01T14:37:52.000Z"><a href="/2013/05/01/cross-compiling-for-raspberrypi/">2013-05-01</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/05/01/e9-85-8d-e7-bd-aeraspberrypi-e4-ba-a4-e5-8f-89-e7-bc-96-e8-af-91-e7-8e-af-e5-a2-83/">配置RaspberryPi交叉编译环境</a></h1>
+    <h1 class="title"><a href="/2013/05/01/cross-compiling-for-raspberrypi/">配置RaspberryPi交叉编译环境</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>os: ubuntu</p>
-<p>1.安装交叉编译工具<br>sudo apt-get install gcc-arm-linux-gnueabi</p>
-<p>2.编写测试程序并编译<br>程序源码：</p>
-<p>#include &lt;stdio.h&gt;<br>int main() {<br>printf(“Hello World!\n”);<br>return 0;<br>}<br>编译指令：<br>arm-linux-gnueabi-gcc hello.c</p>
-<p>3.在RaspberryPi上测试运行<br>通过scp命令上传到RaspberryPi上<br>scp a.out pi@[ip]:~/</p>
-<p>ref:www.neohe.tk/raspberrypi-cross-compile/</p>
+        <p>os: ubuntu  </p>
+<h2 id="1-安装交叉编译工具">1.安装交叉编译工具</h2><pre><code><span class="label">sudo</span> apt-<span class="preprocessor">get</span> install gcc-<span class="preprocessor">arm</span>-linux-gnueabi
+</code></pre><h2 id="2-编写测试程序并编译">2.编写测试程序并编译</h2><p>程序源码：  </p>
+<pre><code><span class="preprocessor">#<span class="keyword">include</span> &amp;lt;stdio.h&amp;gt;</span>
+<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{
+<span class="built_in">printf</span>(<span class="string">"Hello World!\n"</span>);
+<span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre><p>编译指令：<br>V<br>    arm-linux-gnueabi-gcc hello.c</p>
+<h2 id="3-在RaspberryPi上测试运行">3.在RaspberryPi上测试运行</h2><p>通过scp命令上传到RaspberryPi上  </p>
+<pre><code>scp <span class="tag">a</span><span class="class">.out</span> pi@[ip]:~/
+</code></pre><h2 id="ref">ref</h2><p>www.neohe.tk/raspberrypi-cross-compile/</p>
 
       
     </div>
@@ -463,17 +469,11 @@ ssh-agent bash
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Fixit/">Fixit</a><small>1</small></li>
+    <li><a href="/categories/Linux/">Linux</a><small>0</small></li>
   
-    <li><a href="/categories/Linux/">Linux</a><small>4</small></li>
+    <li><a href="/categories/Linux/Oracle/">Oracle</a><small>0</small></li>
   
-    <li><a href="/categories/Linux/Oracle/">Oracle</a><small>3</small></li>
-  
-    <li><a href="/categories/Oracle/">Oracle</a><small>1</small></li>
-  
-    <li><a href="/categories/RaspberryPi/">RaspberryPi</a><small>3</small></li>
-  
-    <li><a href="/categories/未分类/">未分类</a><small>3</small></li>
+    <li><a href="/categories/RaspberryPi/">RaspberryPi</a><small>1</small></li>
   
   </ul>
 </div>
@@ -496,11 +496,9 @@ ssh-agent bash
   
     <li><a href="/tags/book/">book</a><small>1</small></li>
   
-    <li><a href="/tags/c/">c#</a><small>1</small></li>
-  
     <li><a href="/tags/cloud/">cloud</a><small>1</small></li>
   
-    <li><a href="/tags/csharp/">csharp</a><small>1</small></li>
+    <li><a href="/tags/csharp/">csharp</a><small>2</small></li>
   
     <li><a href="/tags/device/">device</a><small>1</small></li>
   

@@ -3,15 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>RHEL4/Oracle9/JDK1.5/Tomcat5.5下载地址 | SniGoal</title>
+  <title>Oracle9i中添加自增触发器 | SniGoal</title>
   <meta name="author" content="snigoal">
   
-  <meta name="description" content="rhel4 u3(Red Hat Enterprise Linux AS release 4 (Nahant Update 3))http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc1.isohttp://2">
+  <meta name="description" content="CREATE OR REPLACE TRIGGER [trigger_name]
+BEFORE insert ON [table_name]
+FOR EACH ROW
+declare next_auto_no number;
+begin
+select [Sequence_name].nextval
+">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="RHEL4/Oracle9/JDK1.5/Tomcat5.5下载地址"/>
+  <meta property="og:title" content="Oracle9i中添加自增触发器"/>
   <meta property="og:site_name" content="SniGoal"/>
 
   
@@ -50,36 +56,37 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-02-06T17:09:03.000Z"><a href="/2013/02/07/rhel4u3oracle9-2-0-4jdk1-5-0-06apachetomcat5-5-25-e4-b8-8b-e8-bd-bd-e5-9c-b0-e5-9d-80/">2013-02-07</a></time>
+        <time datetime="2013-02-06T17:06:50.000Z"><a href="/2013/02/07/add-increment-trigger-in-oracle9i/">2013-02-07</a></time>
       
       
   
-    <h1 class="title">RHEL4/Oracle9/JDK1.5/Tomcat5.5下载地址</h1>
+    <h1 class="title">Oracle9i中添加自增触发器</h1>
   
 
     </header>
     <div class="entry">
       
-        <p><strong>rhel4 u3</strong><br>(Red Hat Enterprise Linux AS release 4 (Nahant Update 3))<br><a href="http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc1.iso" target="_blank" rel="external">http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc1.iso</a><br><a href="http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc2.iso" target="_blank" rel="external">http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc2.iso</a><br><a href="http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc3.iso" target="_blank" rel="external">http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc3.iso</a><br><a href="http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc4.iso" target="_blank" rel="external">http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc4.iso</a><br><strong>oracle 92040
-</strong><a href="http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk1.cpio.gz" target="_blank" rel="external">http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk1.cpio.gz</a><br><a href="http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk2.cpio.gz" target="_blank" rel="external">http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk2.cpio.gz</a><br><a href="http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk3.cpio.gz" target="_blank" rel="external">http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk3.cpio.gz</a><br><strong>java 1.5.0_06
-</strong><a href="http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase5-419410.html#jdk-1.5.0_06-oth-JPR" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase5-419410.html#jdk-1.5.0_06-oth-JPR</a><br><strong>tomcat 5.5.25
-</strong><a href="http://archive.apache.org/dist/tomcat/tomcat-5/v5.5.25/bin/" target="_blank" rel="external">http://archive.apache.org/dist/tomcat/tomcat-5/v5.5.25/bin/</a></p>
-<p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/28/2613194.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/07/28/2613194.html</a></p>
+        <pre><code><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">TRIGGER</span> [trigger_name]
+<span class="keyword">BEFORE</span> <span class="keyword">insert</span> <span class="keyword">ON</span> [table_name]
+<span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span>
+<span class="keyword">declare</span> next_auto_no <span class="built_in">number</span>;</span>
+<span class="operator"><span class="keyword">begin</span>
+<span class="keyword">select</span> [Sequence_name].<span class="keyword">nextval</span>
+<span class="keyword">into</span> next_auto_no
+<span class="keyword">from</span> dual;</span>
+:new.[column_name]:=next_auto_no;
+<span class="operator"><span class="keyword">end</span>;</span>
+</code></pre><p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/28/2613200.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/07/28/2613200.html</a></p>
 
       
     </div>
     <footer>
       
         
-  
-  <div class="categories">
-    <a href="/categories/Linux/">Linux</a>, <a href="/categories/Linux/Oracle/">Oracle</a>
-  </div>
-
         
   
   <div class="tags">
-    <a href="/tags/Linux/">Linux</a>, <a href="/tags/Oracle/">Oracle</a>
+    <a href="/tags/Oracle/">Oracle</a>
   </div>
 
         
@@ -122,7 +129,7 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://www.snigoal.com/2013/02/07/rhel4u3oracle9-2-0-4jdk1-5-0-06apachetomcat5-5-25-e4-b8-8b-e8-bd-bd-e5-9c-b0-e5-9d-80/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://www.snigoal.com/2013/02/07/add-increment-trigger-in-oracle9i/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>
@@ -141,17 +148,11 @@
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Fixit/">Fixit</a><small>1</small></li>
+    <li><a href="/categories/Linux/">Linux</a><small>0</small></li>
   
-    <li><a href="/categories/Linux/">Linux</a><small>4</small></li>
+    <li><a href="/categories/Linux/Oracle/">Oracle</a><small>0</small></li>
   
-    <li><a href="/categories/Linux/Oracle/">Oracle</a><small>3</small></li>
-  
-    <li><a href="/categories/Oracle/">Oracle</a><small>1</small></li>
-  
-    <li><a href="/categories/RaspberryPi/">RaspberryPi</a><small>3</small></li>
-  
-    <li><a href="/categories/未分类/">未分类</a><small>3</small></li>
+    <li><a href="/categories/RaspberryPi/">RaspberryPi</a><small>1</small></li>
   
   </ul>
 </div>
@@ -174,11 +175,9 @@
   
     <li><a href="/tags/book/">book</a><small>1</small></li>
   
-    <li><a href="/tags/c/">c#</a><small>1</small></li>
-  
     <li><a href="/tags/cloud/">cloud</a><small>1</small></li>
   
-    <li><a href="/tags/csharp/">csharp</a><small>1</small></li>
+    <li><a href="/tags/csharp/">csharp</a><small>2</small></li>
   
     <li><a href="/tags/device/">device</a><small>1</small></li>
   
