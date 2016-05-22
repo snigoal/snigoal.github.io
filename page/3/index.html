@@ -1,0 +1,240 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 3 页 | SniGoal</title>
+  <meta name="author" content="snigoal">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="SniGoal"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="SniGoal" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">SniGoal</a></h1>
+  <h2><a href="/">no easy breath on sand.</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-12-25T08:18:14.000Z"><a href="/2012/12/25/raspberrypi-tips/">2012-12-25</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/12/25/raspberrypi-tips/">RaspberryPi Tips</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>#Raspbian从命令行启动</strong><br>sudo raspi-config &gt;&gt; boot_behaviour &gt;&gt; no</p>
+<p><strong>#Raspbian开机自动运行脚本（有点问题）</strong><br>Raspbian(<a href="http://www.raspbian.org/)is" target="_blank" rel="external">http://www.raspbian.org/)is</a> a free operating system based on Debian optimized for the Raspberry Pi hardware.开机自动运行的方法与Debian类似。<br>以下内容摘自<a href="http://penglei.name/html/96.html：" target="_blank" rel="external">http://penglei.name/html/96.html：</a><br>Debian定义了多个运行级别脚本，分别存放在/etc/rc0.d至/etc/rc6.d中，默认级别为5.<br>要增加开机自动运行脚本的方法如下：</p>
+<p>#vi /etc/init.d/rc.local<br>写入你需要运行的脚本，:wq退出</p>
+<h1 id="chmod_+x_/etc/init-d/rc-local_#增加脚本执行权限">chmod +x /etc/init.d/rc.local #增加脚本执行权限</h1><h1 id="update-rc-d_rc-local_start_99_2_3_4_5_-_stop_01_0_1_6_-_#设置启动级别">update-rc.d rc.local start 99 2 3 4 5 . stop 01 0 1 6 . #设置启动级别</h1><p>若要删除脚本的启动级别运行如下命令</p>
+<h1 id="update-rc-d_-f_rc-local_remove">update-rc.d -f rc.local remove</h1><p>ref:<a href="http://penglei.name/html/96.html" target="_blank" rel="external">http://penglei.name/html/96.html</a></p>
+<p><strong>#Raspbian如何显示中文</strong><br>1.将Raspberry Pi连接到网络，在终端中执行下面的命令<br>2.获取并安装文泉驿微米黑字体<br>sudo apt-get install ttf-wqy-microhei<br>3.配置系统字体，首先进入区域设置界面<br>sudo dpkg-reconfigure locales<br>4.用空格键选择四个中文字体zh_CN.GB2312, zh_CN.GB18030, zh_CN GBK, zh_CN.UTF-8,然后确定<br>5.选择zh_CN.UTF-8作为系统环境默认区域设置，然后确定<br>6.重启</p>
+<p><strong>#Raspbian switch to root</strong><br>To execute a command as root, put sudo before the command, for example<br>sudo halt<br>if you want to halt the system.<br>If you wish to become root temporarily, enter the command<br>sudo -s<br>and to leave root mode enter the command<br>exit<br>ref:<a href="http://www.raspberrypi.org/phpBB3/viewtopic.php?f=26&amp;t=13160" target="_blank" rel="external">http://www.raspberrypi.org/phpBB3/viewtopic.php?f=26&amp;t=13160</a><br>ref:<a href="http://www.cnblogs.com/snigoal/archive/2012/09/16/2687319.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/09/16/2687319.html</a></p>
+<p><strong>#Raspian安装Chrome
+</strong>1,wget <a href="http://goo.gl/go5yx" target="_blank" rel="external">http://goo.gl/go5yx</a> -O install.sh<br>2,chmod a+x install.sh<br>3,./install.sh<br>4,chrome -disable-ipv6 &amp; (&amp; for running at background)<br>5,error loading libsmime3.so-&gt;try sudo apt-get update then redo step 3</p>
+<p><strong>#Raspian安装中文输入法SCIM (Smart Common Input</strong> <strong>Method)</strong><br>1,sudo apt-get install scim-pinyin<br>2,if some packages can’t be downloaded, try sudo apt-get update –fix-missing<br>3,run scim and it will run wihle booting.</p>
+<p><strong>#安装Pi Store</strong><br><a href="http://www.raspberrypi.org/archives/2768" target="_blank" rel="external">http://www.raspberrypi.org/archives/2768</a></p>
+<p><strong>#修改root密码
+</strong>sudo passwd root<strong> </strong></p>
+<p><strong>#安装Subversion</strong><br>sudo apt-get install subversion<br>ref:1.<a href="http://www.raspberrypi.org/phpBB3/viewtopic.php?f=30&amp;t=13337" target="_blank" rel="external">http://www.raspberrypi.org/phpBB3/viewtopic.php?f=30&amp;t=13337</a><br>2.<a href="http://www.ha97.com/4467.html" target="_blank" rel="external">http://www.ha97.com/4467.html</a><br>svn over http<br>ref:<a href="http://www.jeremymorgan.com/tutorials/raspberry-pi/raspberry-pi-how-to-svn-server/" target="_blank" rel="external">http://www.jeremymorgan.com/tutorials/raspberry-pi/raspberry-pi-how-to-svn-server/</a></p>
+<p><strong>#安装Git</strong><br>sudo apt-get install git-core<br>ref:<a href="http://quick2wire.com/articles/a-gentle-guide-to-git-and-github/" target="_blank" rel="external">http://quick2wire.com/articles/a-gentle-guide-to-git-and-github/</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-12-15T14:02:52.000Z"><a href="/2012/12/15/22/">2012-12-15</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/12/15/22/">Raspbian中omxplayer的使用</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>播放</strong><br>omxplayer -o hdmi filename</p>
+<p><strong>快捷键</strong><br>1                    加速<br>2                    减速<br>j                     上一条音轨<br>k                    下一条音轨<br>i                     上一节<br>o                    下一节<br>n                    上一条字幕轨<br>m                   下一条字幕轨<br>s                    显示/不显示字幕<br>q                    退出<br>space/p         暂停/继续</p>
+<ul>
+<li>减小音量</li>
+</ul>
+<ul>
+<li>增加音量<br>left                 后退30<br>right               前进30<br>up                  后退600<br>down             前进600</li>
+</ul>
+<p>ref:<a href="http://www.leiphone.com/raspberry-pi-hands-on.html" target="_blank" rel="external">http://www.leiphone.com/raspberry-pi-hands-on.html</a><br>ref:<a href="http://www.cnblogs.com/snigoal/archive/2012/10/07/2714301.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/10/07/2714301.html</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+<nav id="pagination">
+  
+    <a href="/page/2/" class="alignleft prev">上一页</a>
+  
+  
+  <div class="clearfix"></div>
+</nav></div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:www.snigoal.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/C/">C#</a><small>1</small></li>
+  
+    <li><a href="/categories/Fixit/">Fixit</a><small>1</small></li>
+  
+    <li><a href="/categories/Linux/">Linux</a><small>4</small></li>
+  
+    <li><a href="/categories/Linux/Oracle/">Oracle</a><small>3</small></li>
+  
+    <li><a href="/categories/Oracle/">Oracle</a><small>1</small></li>
+  
+    <li><a href="/categories/RaspberryPi/">RaspberryPi</a><small>4</small></li>
+  
+    <li><a href="/categories/未分类/">未分类</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Fixit/">Fixit</a><small>1</small></li>
+  
+    <li><a href="/tags/Fortran/">Fortran</a><small>1</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>7</small></li>
+  
+    <li><a href="/tags/Oracle/">Oracle</a><small>4</small></li>
+  
+    <li><a href="/tags/RaspberryPi/">RaspberryPi</a><small>5</small></li>
+  
+    <li><a href="/tags/book/">book</a><small>1</small></li>
+  
+    <li><a href="/tags/c/">c#</a><small>2</small></li>
+  
+    <li><a href="/tags/cloud/">cloud</a><small>1</small></li>
+  
+    <li><a href="/tags/device/">device</a><small>1</small></li>
+  
+    <li><a href="/tags/domestic/">domestic</a><small>1</small></li>
+  
+    <li><a href="/tags/first/">first</a><small>2</small></li>
+  
+    <li><a href="/tags/history/">history</a><small>2</small></li>
+  
+    <li><a href="/tags/ref/">ref</a><small>1</small></li>
+  
+    <li><a href="/tags/robot/">robot</a><small>1</small></li>
+  
+    <li><a href="/tags/star/">star</a><small>1</small></li>
+  
+    <li><a href="/tags/thanks/">thanks</a><small>1</small></li>
+  
+    <li><a href="/tags/tip/">tip</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 snigoal
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

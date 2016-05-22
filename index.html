@@ -362,9 +362,94 @@ ssh-agent bash
 
 
 
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-05-18T16:03:09.000Z"><a href="/2013/05/19/c-e6-ba-90-e4-bb-a3-e7-a0-81-e7-9a-84-e6-b7-b7-e6-b7-86-e4-b8-8e-e5-8f-8d-e7-bc-96-e8-af-91/">2013-05-19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/05/19/c-e6-ba-90-e4-bb-a3-e7-a0-81-e7-9a-84-e6-b7-b7-e6-b7-86-e4-b8-8e-e5-8f-8d-e7-bc-96-e8-af-91/">C#源代码的混淆与反编译</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>C#是为微软在.NET平台下主推的开发语言，其运行模式借鉴了JAVA，运行于.NET Framework之上，编译时C#代码被编译成一种中间语言。这种中间语言易于反编译，这就导致C#应用十分容易反编译，也就是源代码的泄露。</p>
+<p>只要开源就不存在这个问题，但手头的项目不允许开源，安全起见查找了如何加密C#源代码。</p>
+<p>主流的方式是加密和混淆，基本上有字符串加密、名称混淆、流程混淆。前两个通过降低代码的可阅读性来提高反编译时间成本，实现机密。第三个本人没有深究其内在机制。</p>
+<p>初选定下使用Dotfuscator，因为这个方案网上推荐的最多，但是实施中遇到很多问题。这里需要说明下当前的项目是一个Form调用一个DLL，所以两个文件一起进行混淆，否则调用会出问题。Dotfuscator在进行两个文件混淆时总是不能通过。时间关系，寻找其它方案。</p>
+<p>后找到.NET Reactor，免安装，无需注册，两个文件混淆也很容易，混淆时勾选[NecroBit®]很快解决了问题。混淆后，使用.NET Reflector反编译，核心算法均无法看到，外部调用的对象及其公有方法的名称未改变，应用正常工作。</p>
+<p><strong>使用.NET Reactor</strong></p>
+<p>介绍及下载<a href="http://www.cnblogs.com/saptechnique/archive/2009/09/12/1565152.html" target="_blank" rel="external">http://www.cnblogs.com/saptechnique/archive/2009/09/12/1565152.html</a></p>
+<p>需要说明的是勾选Obfuscation仅混淆私有成员和私有方法；勾选NecroBit®会隐藏公有方法的内容，保护强度提高很多。</p>
+<p><strong>使用.NET Reflector</strong></p>
+<p>官网可试用<a href="http://www.red-gate.com/products/dotnet-development/reflector/" target="_blank" rel="external">http://www.red-gate.com/products/dotnet-development/reflector</a></p>
+<p>打开软件首先选择.NET Framework版本，然后选择需要反编译的文件。</p>
+<p>&nbsp;</p>
+<p>刚开始很奇怪混淆与反编译软件怎么没有开源产品，后来想明白了这种反开源的产品怎么会开源呢？也许还与C#程序员的数量有关。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-05-01T14:37:52.000Z"><a href="/2013/05/01/e9-85-8d-e7-bd-aeraspberrypi-e4-ba-a4-e5-8f-89-e7-bc-96-e8-af-91-e7-8e-af-e5-a2-83/">2013-05-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/05/01/e9-85-8d-e7-bd-aeraspberrypi-e4-ba-a4-e5-8f-89-e7-bc-96-e8-af-91-e7-8e-af-e5-a2-83/">配置RaspberryPi交叉编译环境</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>os: ubuntu</p>
+<p>1.安装交叉编译工具<br>sudo apt-get install gcc-arm-linux-gnueabi</p>
+<p>2.编写测试程序并编译<br>程序源码：</p>
+<p>#include &lt;stdio.h&gt;<br>int main() {<br>printf(“Hello World!\n”);<br>return 0;<br>}<br>编译指令：<br>arm-linux-gnueabi-gcc hello.c</p>
+<p>3.在RaspberryPi上测试运行<br>通过scp命令上传到RaspberryPi上<br>scp a.out pi@[ip]:~/</p>
+<p>ref:www.neohe.tk/raspberrypi-cross-compile/</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
 
 <nav id="pagination">
   
+  
+    <a href="/page/2/" class="alignright next">下一页</a>
   
   <div class="clearfix"></div>
 </nav></div></div>
@@ -377,13 +462,46 @@ ssh-agent bash
 </div>
 
   
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/C/">C#</a><small>1</small></li>
+  
+    <li><a href="/categories/Fixit/">Fixit</a><small>1</small></li>
+  
+    <li><a href="/categories/Linux/">Linux</a><small>4</small></li>
+  
+    <li><a href="/categories/Linux/Oracle/">Oracle</a><small>3</small></li>
+  
+    <li><a href="/categories/Oracle/">Oracle</a><small>1</small></li>
+  
+    <li><a href="/categories/RaspberryPi/">RaspberryPi</a><small>4</small></li>
+  
+    <li><a href="/categories/未分类/">未分类</a><small>3</small></li>
+  
+  </ul>
+</div>
+
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
   <ul class="entry">
   
+    <li><a href="/tags/Fixit/">Fixit</a><small>1</small></li>
+  
+    <li><a href="/tags/Fortran/">Fortran</a><small>1</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>7</small></li>
+  
+    <li><a href="/tags/Oracle/">Oracle</a><small>4</small></li>
+  
+    <li><a href="/tags/RaspberryPi/">RaspberryPi</a><small>5</small></li>
+  
     <li><a href="/tags/book/">book</a><small>1</small></li>
+  
+    <li><a href="/tags/c/">c#</a><small>2</small></li>
   
     <li><a href="/tags/cloud/">cloud</a><small>1</small></li>
   
@@ -413,7 +531,7 @@ ssh-agent bash
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2015 snigoal
+  &copy; 2016 snigoal
   
 </div>
 <div class="clearfix"></div></footer>
