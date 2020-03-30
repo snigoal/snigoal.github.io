@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <title>Set up RaspberryPi as a svn server | SniGoal</title>
@@ -13,11 +13,11 @@ create repository1. create a folder to put repositoriesmkd">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Set up RaspberryPi as a svn server"/>
-  <meta property="og:site_name" content="SniGoal"/>
+  <meta property="og:title" content="Set up RaspberryPi as a svn server">
+  <meta property="og:site_name" content="SniGoal">
 
   
-    <meta property="og:image" content="undefined"/>
+    <meta property="og:image" content="undefined">
   
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -27,7 +27,7 @@ create repository1. create a folder to put repositoriesmkd">
   
 
 </head>
-
+</html>
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
@@ -62,42 +62,42 @@ create repository1. create a folder to put repositoriesmkd">
     </header>
     <div class="entry">
       
-        <h2 id="brief">brief</h2><p>hardware: raspberrypi<br>os:raspbian  </p>
-<h2 id="install_subversion">install subversion</h2><pre><code><span class="label">sudo</span> apt-<span class="preprocessor">get</span> install <span class="keyword">subversion </span> 
-</code></pre><h2 id="create_repository">create repository</h2><h3 id="1-_create_a_folder_to_put_repositories">1. create a folder to put repositories</h3><pre><code>mkdir -<span class="tag">p</span> /usr/svn/repos
-</code></pre><h3 id="2-_create_a_repository">2. create a repository</h3><pre><code>svnadmin create <span class="regexp">/usr/</span>svn<span class="regexp">/repos/</span>hellosvn  
-</code></pre><h2 id="set_up_remote_access_over_http">set up remote access over http</h2><h3 id="1-_install_http_server_apache2">1. install http server apache2</h3><pre><code>sudo apt-<span class="keyword">get</span> install apache2 libapache2-svn
-</code></pre><h3 id="2-_edit_dav_svn-conf_at_/etc/apache2/mods-available/dav_svn-conf">2. edit dav_svn.conf at /etc/apache2/mods-available/dav_svn.conf</h3><pre><code>sudo nano <span class="regexp">/etc/</span>apache2<span class="regexp">/mods-available/</span>dav_svn.conf
+        <h2 id="brief"><a href="#brief" class="headerlink" title="brief"></a>brief</h2><p>hardware: raspberrypi<br>os:raspbian  </p>
+<h2 id="install-subversion"><a href="#install-subversion" class="headerlink" title="install subversion"></a>install subversion</h2><pre><code>sudo apt-get install subversion  
+</code></pre><h2 id="create-repository"><a href="#create-repository" class="headerlink" title="create repository"></a>create repository</h2><h3 id="1-create-a-folder-to-put-repositories"><a href="#1-create-a-folder-to-put-repositories" class="headerlink" title="1. create a folder to put repositories"></a>1. create a folder to put repositories</h3><pre><code>mkdir -p /usr/svn/repos
+</code></pre><h3 id="2-create-a-repository"><a href="#2-create-a-repository" class="headerlink" title="2. create a repository"></a>2. create a repository</h3><pre><code>svnadmin create /usr/svn/repos/hellosvn  
+</code></pre><h2 id="set-up-remote-access-over-http"><a href="#set-up-remote-access-over-http" class="headerlink" title="set up remote access over http"></a>set up remote access over http</h2><h3 id="1-install-http-server-apache2"><a href="#1-install-http-server-apache2" class="headerlink" title="1. install http server apache2"></a>1. install http server apache2</h3><pre><code>sudo apt-get install apache2 libapache2-svn
+</code></pre><h3 id="2-edit-dav-svn-conf-at-etc-apache2-mods-available-dav-svn-conf"><a href="#2-edit-dav-svn-conf-at-etc-apache2-mods-available-dav-svn-conf" class="headerlink" title="2. edit dav_svn.conf at /etc/apache2/mods-available/dav_svn.conf"></a>2. edit dav_svn.conf at /etc/apache2/mods-available/dav_svn.conf</h3><pre><code>sudo nano /etc/apache2/mods-available/dav_svn.conf
 </code></pre><p>add content below to the bottom of the file  </p>
-<pre><code><span class="tag">&lt;Location /svn&gt;</span>
-    <span class="keyword">DAV</span> svn
-    <span class="keyword">SVNParentPath</span> /usr/svn/repos
-    <span class="keyword">AuthType</span> Basic
-    <span class="keyword">AuthName</span> <span class="string">"Subversion Repo"</span>
-    <span class="keyword">AuthUserFile</span> /etc/apache2/dav_svn.passwd
-    <span class="tag">&lt;LimitExcept GET PROPFIND OPTIONS REPORT&gt;</span>
-        <span class="keyword">Require</span> valid-user
-    <span class="tag">&lt;/LimitExcept&gt;</span>
-<span class="tag">&lt;/Location&gt;</span>
-</code></pre><h3 id="3-_restart_apache">3. restart apache</h3><pre><code>sudo <span class="regexp">/etc/i</span>nit.d<span class="regexp">/apache2 restart</span>
-</code></pre><h3 id="4-_change_the_permission_of_the_repository_folder">4. change the permission of the repository folder</h3><pre><code>sudo chown -R  www-<span class="string">data:</span>www-data <span class="regexp">/usr/</span>svn<span class="regexp">/repos/</span>hellosvn
-</code></pre><h3 id="5-_create_the_first_svn_user">5. create the first svn user</h3><pre><code>sudo htpasswd -c  /etc/apache2/dav_svn<span class="class">.passwd</span> [user]
+<pre><code>&lt;Location /svn&gt;
+    DAV svn
+    SVNParentPath /usr/svn/repos
+    AuthType Basic
+    AuthName &quot;Subversion Repo&quot;
+    AuthUserFile /etc/apache2/dav_svn.passwd
+    &lt;LimitExcept GET PROPFIND OPTIONS REPORT&gt;
+        Require valid-user
+    &lt;/LimitExcept&gt;
+&lt;/Location&gt;
+</code></pre><h3 id="3-restart-apache"><a href="#3-restart-apache" class="headerlink" title="3. restart apache"></a>3. restart apache</h3><pre><code>sudo /etc/init.d/apache2 restart
+</code></pre><h3 id="4-change-the-permission-of-the-repository-folder"><a href="#4-change-the-permission-of-the-repository-folder" class="headerlink" title="4. change the permission of the repository folder"></a>4. change the permission of the repository folder</h3><pre><code>sudo chown -R  www-data:www-data /usr/svn/repos/hellosvn
+</code></pre><h3 id="5-create-the-first-svn-user"><a href="#5-create-the-first-svn-user" class="headerlink" title="5. create the first svn user"></a>5. create the first svn user</h3><pre><code>sudo htpasswd -c  /etc/apache2/dav_svn.passwd [user]
 </code></pre><p>now, you can check your repo through a web browser on your Raspberry Pi using IP address.</p>
-<h2 id="add_a_user">add a user</h2><h3 id="1-_add_a_user">1. add a user</h3><pre><code>sudo htpasswd /etc/apache2/dav_svn<span class="class">.passwd</span> [user]
-</code></pre><h3 id="2-_change_the_permission_of_the_repository_folder">2. change the permission of the repository folder</h3><pre><code>sudo chown -R  www-<span class="string">data:</span>www-data <span class="regexp">/usr/</span>svn<span class="regexp">/repos/</span>hellosvn
-</code></pre><h3 id="3-_restart_apache-1">3. restart apache</h3><pre><code>sudo <span class="regexp">/etc/i</span>nit.d<span class="regexp">/apache2 restart</span>
-</code></pre><h2 id="add_a_repository">add a repository</h2><h3 id="1-_create_a_folder_to_put_repositories-1">1. create a folder to put repositories</h3><pre><code>mkdir -<span class="tag">p</span> /usr/svn/repos
-</code></pre><h3 id="2-_create_a_repository-1">2. create a repository</h3><pre><code>svnadmin create <span class="regexp">/usr/</span>svn<span class="regexp">/repos/</span>hellosvn
-</code></pre><h3 id="3-_change_the_permission_of_the_repository_folder">3. change the permission of the repository folder</h3><pre><code>sudo chown -R  www-<span class="string">data:</span>www-data <span class="regexp">/usr/</span>svn<span class="regexp">/repos/</span>hellosvn
-</code></pre><h3 id="4-_restart_apache">4. restart apache</h3><pre><code>sudo <span class="regexp">/etc/i</span>nit.d<span class="regexp">/apache2 restart</span>
-</code></pre><h2 id="repository_migration">repository migration</h2><h3 id="1-_查看当前版本库最新的版本号(@server)">1. 查看当前版本库最新的版本号(@server)</h3><pre><code>svnlook youngest <span class="string">[repo]</span>
-</code></pre><h3 id="2-_导出旧的版本库(@server)">2. 导出旧的版本库(@server)</h3><pre><code>svnadmin dump <span class="string">[repo]</span> -r <span class="string">[lower-revision]</span>:<span class="string">[upper-revision]</span> &amp;gt; <span class="string">[file]</span>
-</code></pre><h3 id="3-_导入新的版本库(@server)">3. 导入新的版本库(@server)</h3><pre><code>svnadmin load <span class="string">[repo]</span> &amp;lt; <span class="string">[file]</span>
-</code></pre><h3 id="4-_查看当前工作区的映射关系(@client)">4. 查看当前工作区的映射关系(@client)</h3><pre><code><span class="title">svn</span> <span class="built_in">info</span>
-</code></pre><h3 id="5-_为当前工作区切换repository_(@client)">5. 为当前工作区切换repository (@client)</h3><pre><code>svn switch --relocate <span class="string">[old-repo-url]</span> <span class="string">[new-repo-url]</span>
-</code></pre><h2 id="ref">ref</h2><ol>
-<li><a href="http://www.jeremymorgan.com/tutorials/raspberry-pi/raspberry-pi-how-to-svn-server" target="_blank" rel="external">http://www.jeremymorgan.com/tutorials/raspberry-pi/raspberry-pi-how-to-svn-server</a></li>
-<li><a href="http://www.blogjava.net/pengpenglin/archive/2008/12/26/248405.html" target="_blank" rel="external">http://www.blogjava.net/pengpenglin/archive/2008/12/26/248405.html</a></li>
+<h2 id="add-a-user"><a href="#add-a-user" class="headerlink" title="add a user"></a>add a user</h2><h3 id="1-add-a-user"><a href="#1-add-a-user" class="headerlink" title="1. add a user"></a>1. add a user</h3><pre><code>sudo htpasswd /etc/apache2/dav_svn.passwd [user]
+</code></pre><h3 id="2-change-the-permission-of-the-repository-folder"><a href="#2-change-the-permission-of-the-repository-folder" class="headerlink" title="2. change the permission of the repository folder"></a>2. change the permission of the repository folder</h3><pre><code>sudo chown -R  www-data:www-data /usr/svn/repos/hellosvn
+</code></pre><h3 id="3-restart-apache-1"><a href="#3-restart-apache-1" class="headerlink" title="3. restart apache"></a>3. restart apache</h3><pre><code>sudo /etc/init.d/apache2 restart
+</code></pre><h2 id="add-a-repository"><a href="#add-a-repository" class="headerlink" title="add a repository"></a>add a repository</h2><h3 id="1-create-a-folder-to-put-repositories-1"><a href="#1-create-a-folder-to-put-repositories-1" class="headerlink" title="1. create a folder to put repositories"></a>1. create a folder to put repositories</h3><pre><code>mkdir -p /usr/svn/repos
+</code></pre><h3 id="2-create-a-repository-1"><a href="#2-create-a-repository-1" class="headerlink" title="2. create a repository"></a>2. create a repository</h3><pre><code>svnadmin create /usr/svn/repos/hellosvn
+</code></pre><h3 id="3-change-the-permission-of-the-repository-folder"><a href="#3-change-the-permission-of-the-repository-folder" class="headerlink" title="3. change the permission of the repository folder"></a>3. change the permission of the repository folder</h3><pre><code>sudo chown -R  www-data:www-data /usr/svn/repos/hellosvn
+</code></pre><h3 id="4-restart-apache"><a href="#4-restart-apache" class="headerlink" title="4. restart apache"></a>4. restart apache</h3><pre><code>sudo /etc/init.d/apache2 restart
+</code></pre><h2 id="repository-migration"><a href="#repository-migration" class="headerlink" title="repository migration"></a>repository migration</h2><h3 id="1-查看当前版本库最新的版本号-server"><a href="#1-查看当前版本库最新的版本号-server" class="headerlink" title="1. 查看当前版本库最新的版本号(@server)"></a>1. 查看当前版本库最新的版本号(@server)</h3><pre><code>svnlook youngest [repo]
+</code></pre><h3 id="2-导出旧的版本库-server"><a href="#2-导出旧的版本库-server" class="headerlink" title="2. 导出旧的版本库(@server)"></a>2. 导出旧的版本库(@server)</h3><pre><code>svnadmin dump [repo] -r [lower-revision]:[upper-revision] &amp;gt; [file]
+</code></pre><h3 id="3-导入新的版本库-server"><a href="#3-导入新的版本库-server" class="headerlink" title="3. 导入新的版本库(@server)"></a>3. 导入新的版本库(@server)</h3><pre><code>svnadmin load [repo] &amp;lt; [file]
+</code></pre><h3 id="4-查看当前工作区的映射关系-client"><a href="#4-查看当前工作区的映射关系-client" class="headerlink" title="4. 查看当前工作区的映射关系(@client)"></a>4. 查看当前工作区的映射关系(@client)</h3><pre><code>svn info
+</code></pre><h3 id="5-为当前工作区切换repository-client"><a href="#5-为当前工作区切换repository-client" class="headerlink" title="5. 为当前工作区切换repository (@client)"></a>5. 为当前工作区切换repository (@client)</h3><pre><code>svn switch --relocate [old-repo-url] [new-repo-url]
+</code></pre><h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><ol>
+<li><a href="http://www.jeremymorgan.com/tutorials/raspberry-pi/raspberry-pi-how-to-svn-server" target="_blank" rel="noopener">http://www.jeremymorgan.com/tutorials/raspberry-pi/raspberry-pi-how-to-svn-server</a></li>
+<li><a href="http://www.blogjava.net/pengpenglin/archive/2008/12/26/248405.html" target="_blank" rel="noopener">http://www.blogjava.net/pengpenglin/archive/2008/12/26/248405.html</a></li>
 </ol>
 
       
@@ -188,7 +188,7 @@ create repository1. create a folder to put repositoriesmkd">
   
     <li><a href="/tags/thanks/">thanks</a><small>1</small></li>
   
-    <li><a href="/tags/tips/">tips</a><small>3</small></li>
+    <li><a href="/tags/tips/">tips</a><small>4</small></li>
   
   </ul>
 </div>
@@ -206,7 +206,7 @@ create repository1. create a folder to put repositoriesmkd">
 
 <div class="alignleft">
   
-  &copy; 2016-2017 SniGoal
+  &copy; 2016-2020 SniGoal
    | 
   <span id="busuanzi_container_site_uv">
     You are viewer No. <span id="busuanzi_value_site_uv"></span>.

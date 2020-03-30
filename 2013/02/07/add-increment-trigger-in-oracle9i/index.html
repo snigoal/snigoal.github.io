@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <title>Oracle9i中添加自增触发器 | SniGoal</title>
@@ -17,11 +17,11 @@ select [Sequence_name].nextval
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Oracle9i中添加自增触发器"/>
-  <meta property="og:site_name" content="SniGoal"/>
+  <meta property="og:title" content="Oracle9i中添加自增触发器">
+  <meta property="og:site_name" content="SniGoal">
 
   
-    <meta property="og:image" content="undefined"/>
+    <meta property="og:image" content="undefined">
   
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -31,7 +31,7 @@ select [Sequence_name].nextval
   
 
 </head>
-
+</html>
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
@@ -66,17 +66,17 @@ select [Sequence_name].nextval
     </header>
     <div class="entry">
       
-        <pre><code><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">TRIGGER</span> [trigger_name]
-<span class="keyword">BEFORE</span> <span class="keyword">insert</span> <span class="keyword">ON</span> [table_name]
-<span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span>
-<span class="keyword">declare</span> next_auto_no <span class="built_in">number</span>;</span>
-<span class="operator"><span class="keyword">begin</span>
-<span class="keyword">select</span> [Sequence_name].<span class="keyword">nextval</span>
-<span class="keyword">into</span> next_auto_no
-<span class="keyword">from</span> dual;</span>
+        <pre><code>CREATE OR REPLACE TRIGGER [trigger_name]
+BEFORE insert ON [table_name]
+FOR EACH ROW
+declare next_auto_no number;
+begin
+select [Sequence_name].nextval
+into next_auto_no
+from dual;
 :new.[column_name]:=next_auto_no;
-<span class="operator"><span class="keyword">end</span>;</span>
-</code></pre><p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/28/2613200.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/07/28/2613200.html</a></p>
+end;
+</code></pre><p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/28/2613200.html" target="_blank" rel="noopener">http://www.cnblogs.com/snigoal/archive/2012/07/28/2613200.html</a></p>
 
       
     </div>
@@ -166,7 +166,7 @@ select [Sequence_name].nextval
   
     <li><a href="/tags/thanks/">thanks</a><small>1</small></li>
   
-    <li><a href="/tags/tips/">tips</a><small>3</small></li>
+    <li><a href="/tags/tips/">tips</a><small>4</small></li>
   
   </ul>
 </div>
@@ -184,7 +184,7 @@ select [Sequence_name].nextval
 
 <div class="alignleft">
   
-  &copy; 2016-2017 SniGoal
+  &copy; 2016-2020 SniGoal
    | 
   <span id="busuanzi_container_site_uv">
     You are viewer No. <span id="busuanzi_value_site_uv"></span>.

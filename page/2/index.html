@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <title>第 2 页 | SniGoal</title>
@@ -10,10 +10,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-  <meta property="og:site_name" content="SniGoal"/>
+  <meta property="og:site_name" content="SniGoal">
 
   
-    <meta property="og:image" content="undefined"/>
+    <meta property="og:image" content="undefined">
   
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -23,7 +23,7 @@
   
 
 </head>
-
+</html>
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
@@ -49,6 +49,48 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2013-05-18T16:03:09.000Z"><a href="/2013/05/19/csharp-source-code-obfuscation-and-decompile/">2013-05-19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/05/19/csharp-source-code-obfuscation-and-decompile/">C#源代码的混淆与反编译</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>C#是为微软在.NET平台下主推的开发语言，其运行模式借鉴了JAVA，运行于.NET Framework之上，编译时C#代码被编译成一种中间语言。这种中间语言易于反编译，这就导致C#应用十分容易反编译，也就是源代码的泄露。  </p>
+<p>只要开源就不存在这个问题，但手头的项目不允许开源，安全起见查找了如何加密C#源代码。  </p>
+<p>主流的方式是加密和混淆，基本上有字符串加密、名称混淆、流程混淆。前两个通过降低代码的可阅读性来提高反编译时间成本，实现机密。第三个本人没有深究其内在机制。  </p>
+<p>初选定下使用Dotfuscator，因为这个方案网上推荐的最多，但是实施中遇到很多问题。这里需要说明下当前的项目是一个Form调用一个DLL，所以两个文件一起进行混淆，否则调用会出问题。Dotfuscator在进行两个文件混淆时总是不能通过。时间关系，寻找其它方案。  </p>
+<p>后找到.NET Reactor，免安装，无需注册，两个文件混淆也很容易，混淆时勾选[NecroBit®]很快解决了问题。混淆后，使用.NET Reflector反编译，核心算法均无法看到，外部调用的对象及其公有方法的名称未改变，应用正常工作。  </p>
+<h2 id="使用-NET-Reactor"><a href="#使用-NET-Reactor" class="headerlink" title="使用.NET Reactor"></a>使用.NET Reactor</h2><p>介绍及下载<a href="http://www.cnblogs.com/saptechnique/archive/2009/09/12/1565152.html" target="_blank" rel="noopener">http://www.cnblogs.com/saptechnique/archive/2009/09/12/1565152.html</a></p>
+<p>需要说明的是勾选Obfuscation仅混淆私有成员和私有方法；勾选NecroBit®会隐藏公有方法的内容，保护强度提高很多。</p>
+<h2 id="使用-NET-Reflector"><a href="#使用-NET-Reflector" class="headerlink" title="使用.NET Reflector"></a>使用.NET Reflector</h2><p>官网可试用<a href="http://www.red-gate.com/products/dotnet-development/reflector/" target="_blank" rel="noopener">http://www.red-gate.com/products/dotnet-development/reflector</a></p>
+<p>打开软件首先选择.NET Framework版本，然后选择需要反编译的文件。</p>
+<p>刚开始很奇怪混淆与反编译软件怎么没有开源产品，后来想明白了这种反开源的产品怎么会开源呢？也许还与C#程序员的数量有关。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2013-05-01T14:37:52.000Z"><a href="/2013/05/01/cross-compiling-for-raspberrypi/">2013-05-01</a></time>
       
       
@@ -60,17 +102,17 @@
     <div class="entry">
       
         <p>os: ubuntu  </p>
-<h2 id="1-安装交叉编译工具">1.安装交叉编译工具</h2><pre><code><span class="label">sudo</span> apt-<span class="preprocessor">get</span> install gcc-<span class="preprocessor">arm</span>-linux-gnueabi
-</code></pre><h2 id="2-编写测试程序并编译">2.编写测试程序并编译</h2><p>程序源码：  </p>
-<pre><code><span class="preprocessor">#<span class="keyword">include</span> &amp;lt;stdio.h&amp;gt;</span>
-<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{
-<span class="built_in">printf</span>(<span class="string">"Hello World!\n"</span>);
-<span class="keyword">return</span> <span class="number">0</span>;
+<h2 id="1-安装交叉编译工具"><a href="#1-安装交叉编译工具" class="headerlink" title="1.安装交叉编译工具"></a>1.安装交叉编译工具</h2><pre><code>sudo apt-get install gcc-arm-linux-gnueabi
+</code></pre><h2 id="2-编写测试程序并编译"><a href="#2-编写测试程序并编译" class="headerlink" title="2.编写测试程序并编译"></a>2.编写测试程序并编译</h2><p>程序源码：  </p>
+<pre><code>#include &amp;lt;stdio.h&amp;gt;
+int main() {
+printf(&quot;Hello World!\n&quot;);
+return 0;
 }
 </code></pre><p>编译指令：<br>V<br>    arm-linux-gnueabi-gcc hello.c</p>
-<h2 id="3-在RaspberryPi上测试运行">3.在RaspberryPi上测试运行</h2><p>通过scp命令上传到RaspberryPi上  </p>
-<pre><code>scp <span class="tag">a</span><span class="class">.out</span> pi@[ip]:~/
-</code></pre><h2 id="ref">ref</h2><p>www.neohe.tk/raspberrypi-cross-compile/</p>
+<h2 id="3-在RaspberryPi上测试运行"><a href="#3-在RaspberryPi上测试运行" class="headerlink" title="3.在RaspberryPi上测试运行"></a>3.在RaspberryPi上测试运行</h2><p>通过scp命令上传到RaspberryPi上  </p>
+<pre><code>scp a.out pi@[ip]:~/
+</code></pre><h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><p><a href="http://www.neohe.tk/raspberrypi-cross-compile/" target="_blank" rel="noopener">www.neohe.tk/raspberrypi-cross-compile/</a></p>
 
       
     </div>
@@ -104,21 +146,21 @@
     <div class="entry">
       
         <p>在C#中，通过Process类来进行进程操作。 Process类在System.Diagnostics包中。</p>
-<h1 id="DEMO1">DEMO1</h1><pre><code><span class="keyword">using</span> System.Diagnostics;
-Process p = Process.Start(<span class="string">"notepad.exe"</span>);
-p.WaitForExit();<span class="comment">//关键</span>
-</code></pre><h1 id="DEMO2">DEMO2</h1><pre><code><span class="keyword">using</span> System.Diagnostics;
-Process p = <span class="keyword">new</span> Process();
-p.StartInfo.Arguments = <span class="string">""</span>;
-p.StartInfo.CreateNoWindow = <span class="literal">true</span>;<span class="comment">//不创建窗口</span>
-p.StartInfo.UseShellExecute = <span class="literal">false</span>;
-p.StartInfo.FileName = <span class="string">"notepad.exe"</span>;
-<span class="keyword">if</span> (File.Exists(<span class="string">"notepad.exe"</span>))
+<h1 id="DEMO1"><a href="#DEMO1" class="headerlink" title="DEMO1"></a>DEMO1</h1><pre><code>using System.Diagnostics;
+Process p = Process.Start(&quot;notepad.exe&quot;);
+p.WaitForExit();//关键
+</code></pre><h1 id="DEMO2"><a href="#DEMO2" class="headerlink" title="DEMO2"></a>DEMO2</h1><pre><code>using System.Diagnostics;
+Process p = new Process();
+p.StartInfo.Arguments = &quot;&quot;;
+p.StartInfo.CreateNoWindow = true;//不创建窗口
+p.StartInfo.UseShellExecute = false;
+p.StartInfo.FileName = &quot;notepad.exe&quot;;
+if (File.Exists(&quot;notepad.exe&quot;))
 {
 p.Start();
 p.WaitForExit();
 }
-<span class="comment">//如果调用控制台程序，该例不会出现黑窗口。</span>
+//如果调用控制台程序，该例不会出现黑窗口。
 </code></pre>
       
     </div>
@@ -160,8 +202,8 @@ p.WaitForExit();
 <p>前两种都是商业化的fortran编译器，可通过申请试用licence免费使用。申请licence的复杂程度intel小于PGI。intel的只需要注册用户就可以立刻拿到licence，而PGI的需要自己发邮件联系销售代表（回应周期未亲自测算）。两者都支持visual studio，易用性能够保证。安装文件均超过300MB，不可能立刻上手使用。</p>
 <p>G95是开源项目，下载安装上手使用非常快捷。困难在于只能使用命令行操作。初学者做小的项目还是可以的。</p>
 <p>G95在windows下编译生成可执行程序（.exe）  </p>
-<pre><code><span class="tag">g95</span> <span class="tag">-o</span> <span class="attr_selector">[appname]</span><span class="class">.exe</span> <span class="attr_selector">[fortranfile1]</span> <span class="attr_selector">[fortranfile2]</span>
-</code></pre><p>g95 official website <a href="http://www.g95.org/" target="_blank" rel="external">http://www.g95.org/</a><br>g95 manual <a href="http://ftp.g95.org/G95Manual.pdf" target="_blank" rel="external">http://ftp.g95.org/G95Manual.pdf</a>  </p>
+<pre><code>g95 -o [appname].exe [fortranfile1] [fortranfile2]
+</code></pre><p>g95 official website <a href="http://www.g95.org/" target="_blank" rel="noopener">http://www.g95.org/</a><br>g95 manual <a href="http://ftp.g95.org/G95Manual.pdf" target="_blank" rel="noopener">http://ftp.g95.org/G95Manual.pdf</a>  </p>
 
       
     </div>
@@ -194,42 +236,42 @@ p.WaitForExit();
     </header>
     <div class="entry">
       
-        <h2 id="brief">brief</h2><p>hardware: raspberrypi<br>os:raspbian  </p>
-<h2 id="install_subversion">install subversion</h2><pre><code><span class="label">sudo</span> apt-<span class="preprocessor">get</span> install <span class="keyword">subversion </span> 
-</code></pre><h2 id="create_repository">create repository</h2><h3 id="1-_create_a_folder_to_put_repositories">1. create a folder to put repositories</h3><pre><code>mkdir -<span class="tag">p</span> /usr/svn/repos
-</code></pre><h3 id="2-_create_a_repository">2. create a repository</h3><pre><code>svnadmin create <span class="regexp">/usr/</span>svn<span class="regexp">/repos/</span>hellosvn  
-</code></pre><h2 id="set_up_remote_access_over_http">set up remote access over http</h2><h3 id="1-_install_http_server_apache2">1. install http server apache2</h3><pre><code>sudo apt-<span class="keyword">get</span> install apache2 libapache2-svn
-</code></pre><h3 id="2-_edit_dav_svn-conf_at_/etc/apache2/mods-available/dav_svn-conf">2. edit dav_svn.conf at /etc/apache2/mods-available/dav_svn.conf</h3><pre><code>sudo nano <span class="regexp">/etc/</span>apache2<span class="regexp">/mods-available/</span>dav_svn.conf
+        <h2 id="brief"><a href="#brief" class="headerlink" title="brief"></a>brief</h2><p>hardware: raspberrypi<br>os:raspbian  </p>
+<h2 id="install-subversion"><a href="#install-subversion" class="headerlink" title="install subversion"></a>install subversion</h2><pre><code>sudo apt-get install subversion  
+</code></pre><h2 id="create-repository"><a href="#create-repository" class="headerlink" title="create repository"></a>create repository</h2><h3 id="1-create-a-folder-to-put-repositories"><a href="#1-create-a-folder-to-put-repositories" class="headerlink" title="1. create a folder to put repositories"></a>1. create a folder to put repositories</h3><pre><code>mkdir -p /usr/svn/repos
+</code></pre><h3 id="2-create-a-repository"><a href="#2-create-a-repository" class="headerlink" title="2. create a repository"></a>2. create a repository</h3><pre><code>svnadmin create /usr/svn/repos/hellosvn  
+</code></pre><h2 id="set-up-remote-access-over-http"><a href="#set-up-remote-access-over-http" class="headerlink" title="set up remote access over http"></a>set up remote access over http</h2><h3 id="1-install-http-server-apache2"><a href="#1-install-http-server-apache2" class="headerlink" title="1. install http server apache2"></a>1. install http server apache2</h3><pre><code>sudo apt-get install apache2 libapache2-svn
+</code></pre><h3 id="2-edit-dav-svn-conf-at-etc-apache2-mods-available-dav-svn-conf"><a href="#2-edit-dav-svn-conf-at-etc-apache2-mods-available-dav-svn-conf" class="headerlink" title="2. edit dav_svn.conf at /etc/apache2/mods-available/dav_svn.conf"></a>2. edit dav_svn.conf at /etc/apache2/mods-available/dav_svn.conf</h3><pre><code>sudo nano /etc/apache2/mods-available/dav_svn.conf
 </code></pre><p>add content below to the bottom of the file  </p>
-<pre><code><span class="tag">&lt;Location /svn&gt;</span>
-    <span class="keyword">DAV</span> svn
-    <span class="keyword">SVNParentPath</span> /usr/svn/repos
-    <span class="keyword">AuthType</span> Basic
-    <span class="keyword">AuthName</span> <span class="string">"Subversion Repo"</span>
-    <span class="keyword">AuthUserFile</span> /etc/apache2/dav_svn.passwd
-    <span class="tag">&lt;LimitExcept GET PROPFIND OPTIONS REPORT&gt;</span>
-        <span class="keyword">Require</span> valid-user
-    <span class="tag">&lt;/LimitExcept&gt;</span>
-<span class="tag">&lt;/Location&gt;</span>
-</code></pre><h3 id="3-_restart_apache">3. restart apache</h3><pre><code>sudo <span class="regexp">/etc/i</span>nit.d<span class="regexp">/apache2 restart</span>
-</code></pre><h3 id="4-_change_the_permission_of_the_repository_folder">4. change the permission of the repository folder</h3><pre><code>sudo chown -R  www-<span class="string">data:</span>www-data <span class="regexp">/usr/</span>svn<span class="regexp">/repos/</span>hellosvn
-</code></pre><h3 id="5-_create_the_first_svn_user">5. create the first svn user</h3><pre><code>sudo htpasswd -c  /etc/apache2/dav_svn<span class="class">.passwd</span> [user]
+<pre><code>&lt;Location /svn&gt;
+    DAV svn
+    SVNParentPath /usr/svn/repos
+    AuthType Basic
+    AuthName &quot;Subversion Repo&quot;
+    AuthUserFile /etc/apache2/dav_svn.passwd
+    &lt;LimitExcept GET PROPFIND OPTIONS REPORT&gt;
+        Require valid-user
+    &lt;/LimitExcept&gt;
+&lt;/Location&gt;
+</code></pre><h3 id="3-restart-apache"><a href="#3-restart-apache" class="headerlink" title="3. restart apache"></a>3. restart apache</h3><pre><code>sudo /etc/init.d/apache2 restart
+</code></pre><h3 id="4-change-the-permission-of-the-repository-folder"><a href="#4-change-the-permission-of-the-repository-folder" class="headerlink" title="4. change the permission of the repository folder"></a>4. change the permission of the repository folder</h3><pre><code>sudo chown -R  www-data:www-data /usr/svn/repos/hellosvn
+</code></pre><h3 id="5-create-the-first-svn-user"><a href="#5-create-the-first-svn-user" class="headerlink" title="5. create the first svn user"></a>5. create the first svn user</h3><pre><code>sudo htpasswd -c  /etc/apache2/dav_svn.passwd [user]
 </code></pre><p>now, you can check your repo through a web browser on your Raspberry Pi using IP address.</p>
-<h2 id="add_a_user">add a user</h2><h3 id="1-_add_a_user">1. add a user</h3><pre><code>sudo htpasswd /etc/apache2/dav_svn<span class="class">.passwd</span> [user]
-</code></pre><h3 id="2-_change_the_permission_of_the_repository_folder">2. change the permission of the repository folder</h3><pre><code>sudo chown -R  www-<span class="string">data:</span>www-data <span class="regexp">/usr/</span>svn<span class="regexp">/repos/</span>hellosvn
-</code></pre><h3 id="3-_restart_apache-1">3. restart apache</h3><pre><code>sudo <span class="regexp">/etc/i</span>nit.d<span class="regexp">/apache2 restart</span>
-</code></pre><h2 id="add_a_repository">add a repository</h2><h3 id="1-_create_a_folder_to_put_repositories-1">1. create a folder to put repositories</h3><pre><code>mkdir -<span class="tag">p</span> /usr/svn/repos
-</code></pre><h3 id="2-_create_a_repository-1">2. create a repository</h3><pre><code>svnadmin create <span class="regexp">/usr/</span>svn<span class="regexp">/repos/</span>hellosvn
-</code></pre><h3 id="3-_change_the_permission_of_the_repository_folder">3. change the permission of the repository folder</h3><pre><code>sudo chown -R  www-<span class="string">data:</span>www-data <span class="regexp">/usr/</span>svn<span class="regexp">/repos/</span>hellosvn
-</code></pre><h3 id="4-_restart_apache">4. restart apache</h3><pre><code>sudo <span class="regexp">/etc/i</span>nit.d<span class="regexp">/apache2 restart</span>
-</code></pre><h2 id="repository_migration">repository migration</h2><h3 id="1-_查看当前版本库最新的版本号(@server)">1. 查看当前版本库最新的版本号(@server)</h3><pre><code>svnlook youngest <span class="string">[repo]</span>
-</code></pre><h3 id="2-_导出旧的版本库(@server)">2. 导出旧的版本库(@server)</h3><pre><code>svnadmin dump <span class="string">[repo]</span> -r <span class="string">[lower-revision]</span>:<span class="string">[upper-revision]</span> &amp;gt; <span class="string">[file]</span>
-</code></pre><h3 id="3-_导入新的版本库(@server)">3. 导入新的版本库(@server)</h3><pre><code>svnadmin load <span class="string">[repo]</span> &amp;lt; <span class="string">[file]</span>
-</code></pre><h3 id="4-_查看当前工作区的映射关系(@client)">4. 查看当前工作区的映射关系(@client)</h3><pre><code><span class="title">svn</span> <span class="built_in">info</span>
-</code></pre><h3 id="5-_为当前工作区切换repository_(@client)">5. 为当前工作区切换repository (@client)</h3><pre><code>svn switch --relocate <span class="string">[old-repo-url]</span> <span class="string">[new-repo-url]</span>
-</code></pre><h2 id="ref">ref</h2><ol>
-<li><a href="http://www.jeremymorgan.com/tutorials/raspberry-pi/raspberry-pi-how-to-svn-server" target="_blank" rel="external">http://www.jeremymorgan.com/tutorials/raspberry-pi/raspberry-pi-how-to-svn-server</a></li>
-<li><a href="http://www.blogjava.net/pengpenglin/archive/2008/12/26/248405.html" target="_blank" rel="external">http://www.blogjava.net/pengpenglin/archive/2008/12/26/248405.html</a></li>
+<h2 id="add-a-user"><a href="#add-a-user" class="headerlink" title="add a user"></a>add a user</h2><h3 id="1-add-a-user"><a href="#1-add-a-user" class="headerlink" title="1. add a user"></a>1. add a user</h3><pre><code>sudo htpasswd /etc/apache2/dav_svn.passwd [user]
+</code></pre><h3 id="2-change-the-permission-of-the-repository-folder"><a href="#2-change-the-permission-of-the-repository-folder" class="headerlink" title="2. change the permission of the repository folder"></a>2. change the permission of the repository folder</h3><pre><code>sudo chown -R  www-data:www-data /usr/svn/repos/hellosvn
+</code></pre><h3 id="3-restart-apache-1"><a href="#3-restart-apache-1" class="headerlink" title="3. restart apache"></a>3. restart apache</h3><pre><code>sudo /etc/init.d/apache2 restart
+</code></pre><h2 id="add-a-repository"><a href="#add-a-repository" class="headerlink" title="add a repository"></a>add a repository</h2><h3 id="1-create-a-folder-to-put-repositories-1"><a href="#1-create-a-folder-to-put-repositories-1" class="headerlink" title="1. create a folder to put repositories"></a>1. create a folder to put repositories</h3><pre><code>mkdir -p /usr/svn/repos
+</code></pre><h3 id="2-create-a-repository-1"><a href="#2-create-a-repository-1" class="headerlink" title="2. create a repository"></a>2. create a repository</h3><pre><code>svnadmin create /usr/svn/repos/hellosvn
+</code></pre><h3 id="3-change-the-permission-of-the-repository-folder"><a href="#3-change-the-permission-of-the-repository-folder" class="headerlink" title="3. change the permission of the repository folder"></a>3. change the permission of the repository folder</h3><pre><code>sudo chown -R  www-data:www-data /usr/svn/repos/hellosvn
+</code></pre><h3 id="4-restart-apache"><a href="#4-restart-apache" class="headerlink" title="4. restart apache"></a>4. restart apache</h3><pre><code>sudo /etc/init.d/apache2 restart
+</code></pre><h2 id="repository-migration"><a href="#repository-migration" class="headerlink" title="repository migration"></a>repository migration</h2><h3 id="1-查看当前版本库最新的版本号-server"><a href="#1-查看当前版本库最新的版本号-server" class="headerlink" title="1. 查看当前版本库最新的版本号(@server)"></a>1. 查看当前版本库最新的版本号(@server)</h3><pre><code>svnlook youngest [repo]
+</code></pre><h3 id="2-导出旧的版本库-server"><a href="#2-导出旧的版本库-server" class="headerlink" title="2. 导出旧的版本库(@server)"></a>2. 导出旧的版本库(@server)</h3><pre><code>svnadmin dump [repo] -r [lower-revision]:[upper-revision] &amp;gt; [file]
+</code></pre><h3 id="3-导入新的版本库-server"><a href="#3-导入新的版本库-server" class="headerlink" title="3. 导入新的版本库(@server)"></a>3. 导入新的版本库(@server)</h3><pre><code>svnadmin load [repo] &amp;lt; [file]
+</code></pre><h3 id="4-查看当前工作区的映射关系-client"><a href="#4-查看当前工作区的映射关系-client" class="headerlink" title="4. 查看当前工作区的映射关系(@client)"></a>4. 查看当前工作区的映射关系(@client)</h3><pre><code>svn info
+</code></pre><h3 id="5-为当前工作区切换repository-client"><a href="#5-为当前工作区切换repository-client" class="headerlink" title="5. 为当前工作区切换repository (@client)"></a>5. 为当前工作区切换repository (@client)</h3><pre><code>svn switch --relocate [old-repo-url] [new-repo-url]
+</code></pre><h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><ol>
+<li><a href="http://www.jeremymorgan.com/tutorials/raspberry-pi/raspberry-pi-how-to-svn-server" target="_blank" rel="noopener">http://www.jeremymorgan.com/tutorials/raspberry-pi/raspberry-pi-how-to-svn-server</a></li>
+<li><a href="http://www.blogjava.net/pengpenglin/archive/2008/12/26/248405.html" target="_blank" rel="noopener">http://www.blogjava.net/pengpenglin/archive/2008/12/26/248405.html</a></li>
 </ol>
 
       
@@ -265,10 +307,10 @@ p.WaitForExit();
       
         <p>在RH Linux AS4 x86-64 安装Oracle9.2.0.4前打补丁Patch 4198954中的compat-libcwait-2.1-1.i386.rpm 报如下的错误：<br>    [root@oracle8 oracle]# rpm -ivh compat-oracle-rhel4-1.0-5.i386.rpm<br>    ERROR: ld.so: object ‘/lib/libcwait.so’ from /etc/ld.so.preload cannot be preloaded: ignore</p>
 <p>Google找到解决办法：</p>
-<pre><code><span class="preprocessor"># echo <span class="string">""</span> &amp;gt<span class="comment">; /etc/ld.so.preload</span></span>
+<pre><code># echo &quot;&quot; &amp;gt; /etc/ld.so.preload
 </code></pre><p>问题原因是64位系统没有这个文件导致报错</p>
-<p>ref:<a href="http://blog.deepseabug.com/?p=71" target="_blank" rel="external">http://blog.deepseabug.com/?p=71</a>  </p>
-<p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/17/2596569.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/07/17/2596569.html</a>  </p>
+<p>ref:<a href="http://blog.deepseabug.com/?p=71" target="_blank" rel="noopener">http://blog.deepseabug.com/?p=71</a>  </p>
+<p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/17/2596569.html" target="_blank" rel="noopener">http://www.cnblogs.com/snigoal/archive/2012/07/17/2596569.html</a>  </p>
 
       
     </div>
@@ -302,20 +344,17 @@ p.WaitForExit();
     <div class="entry">
       
         <p>##　1.修改组策略<br>将/etc/selinux/config中的  </p>
-<pre><code>SELINUX=[permissive|<span class="string">enforcing</span>|<span class="string">disabled]</span>
+<pre><code>SELINUX=[permissive|enforcing|disabled]
 </code></pre><p>改为  </p>
-<pre><code><span class="attribute">SELINUX</span>=<span class="string">disabled</span>
-</code></pre><h2 id="2-修改oratab">2.修改oratab</h2><p>将/etc/oratab中的</p>
-<pre><code>[oracle_sid]:[<span class="variable">$oracle</span>_home]:N
-</code></pre><p>改为</p>
-<pre><code>[oracle_sid]:[<span class="variable">$oracle</span>_home]:Y
-</code></pre><h2 id="3-复制init[oracle_sid]-ora文件">3.复制init[oracle_sid].ora文件</h2><p>将[$oracle_base]/admin/[oracle_sid]/pfile下的以init[oracle_sid].ora开头的文件复制到[$oracle_home]/dbs下，并更名为init[oracle_sid].ora</p>
-<h2 id="4-添加自启动命令">4.添加自启动命令</h2><p>在/etc/rc.d/rc.local中添加下面的内容</p>
-<pre><code># <span class="operator"><span class="keyword">start</span> <span class="keyword">oracle</span>
-su - <span class="keyword">oracle</span> -<span class="keyword">c</span> <span class="string">'lsnrctl start'</span>
-su - <span class="keyword">oracle</span> -<span class="keyword">c</span> <span class="string">'dbstart'</span></span>
+<pre><code>SELINUX=disabled
+</code></pre><h2 id="2-修改oratab"><a href="#2-修改oratab" class="headerlink" title="2.修改oratab"></a>2.修改oratab</h2><p>将/etc/oratab中的<br>    [oracle_sid]:[$oracle_home]:N<br>改为<br>    [oracle_sid]:[$oracle_home]:Y</p>
+<h2 id="3-复制init-oracle-sid-ora文件"><a href="#3-复制init-oracle-sid-ora文件" class="headerlink" title="3.复制init[oracle_sid].ora文件"></a>3.复制init[oracle_sid].ora文件</h2><p>将[$oracle_base]/admin/[oracle_sid]/pfile下的以init[oracle_sid].ora开头的文件复制到[$oracle_home]/dbs下，并更名为init[oracle_sid].ora</p>
+<h2 id="4-添加自启动命令"><a href="#4-添加自启动命令" class="headerlink" title="4.添加自启动命令"></a>4.添加自启动命令</h2><p>在/etc/rc.d/rc.local中添加下面的内容</p>
+<pre><code># start oracle
+su - oracle -c &apos;lsnrctl start&apos;
+su - oracle -c &apos;dbstart&apos;
 </code></pre><p>##5.测试<br>执行rc.local测试一下</p>
-<p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/21/2602122.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/07/21/2602122.html</a></p>
+<p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/21/2602122.html" target="_blank" rel="noopener">http://www.cnblogs.com/snigoal/archive/2012/07/21/2602122.html</a></p>
 
       
     </div>
@@ -349,10 +388,10 @@ su - <span class="keyword">oracle</span> -<span class="keyword">c</span> <span c
     <div class="entry">
       
         <pre><code>$&gt; sqlplus /nolog
-SQL&gt; connect /<span class="keyword">as</span> sysdba
-SQL&gt; alter user sys identified <span class="keyword">by</span> [新密碼];
-SQL&gt; alter user system identified <span class="keyword">by</span> [新密碼];
-</code></pre><p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/21/2603003.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/07/21/2603003.html</a></p>
+SQL&gt; connect /as sysdba
+SQL&gt; alter user sys identified by [新密碼];
+SQL&gt; alter user system identified by [新密碼];
+</code></pre><p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/21/2603003.html" target="_blank" rel="noopener">http://www.cnblogs.com/snigoal/archive/2012/07/21/2603003.html</a></p>
 
       
     </div>
@@ -385,11 +424,11 @@ SQL&gt; alter user system identified <span class="keyword">by</span> [新密碼]
     </header>
     <div class="entry">
       
-        <h2 id="rhel4_u3">rhel4 u3</h2><p>(Red Hat Enterprise Linux AS release 4 (Nahant Update 3))<br><a href="http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc1.iso" target="_blank" rel="external">http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc1.iso</a><br><a href="http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc2.iso" target="_blank" rel="external">http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc2.iso</a><br><a href="http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc3.iso" target="_blank" rel="external">http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc3.iso</a><br><a href="http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc4.iso" target="_blank" rel="external">http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc4.iso</a></p>
-<h2 id="oracle_92040">oracle 92040</h2><p><a href="http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk1.cpio.gz" target="_blank" rel="external">http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk1.cpio.gz</a><br><a href="http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk2.cpio.gz" target="_blank" rel="external">http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk2.cpio.gz</a><br><a href="http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk3.cpio.gz" target="_blank" rel="external">http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk3.cpio.gz</a>  </p>
-<h2 id="java_1-5-0_06">java 1.5.0_06</h2><p><a href="http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase5-419410.html#jdk-1.5.0_06-oth-JPR" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase5-419410.html#jdk-1.5.0_06-oth-JPR</a>  </p>
-<h2 id="tomcat_5-5-25">tomcat 5.5.25</h2><p><a href="http://archive.apache.org/dist/tomcat/tomcat-5/v5.5.25/bin/" target="_blank" rel="external">http://archive.apache.org/dist/tomcat/tomcat-5/v5.5.25/bin/</a>  </p>
-<p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/28/2613194.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/07/28/2613194.html</a></p>
+        <h2 id="rhel4-u3"><a href="#rhel4-u3" class="headerlink" title="rhel4 u3"></a>rhel4 u3</h2><p>(Red Hat Enterprise Linux AS release 4 (Nahant Update 3))<br><a href="http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc1.iso" target="_blank" rel="noopener">http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc1.iso</a><br><a href="http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc2.iso" target="_blank" rel="noopener">http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc2.iso</a><br><a href="http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc3.iso" target="_blank" rel="noopener">http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc3.iso</a><br><a href="http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc4.iso" target="_blank" rel="noopener">http://218.6.142.227/soft-dist/redhat/RHEL4U3-i386/RHEL4-U3-i386-AS-disc4.iso</a></p>
+<h2 id="oracle-92040"><a href="#oracle-92040" class="headerlink" title="oracle 92040"></a>oracle 92040</h2><p><a href="http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk1.cpio.gz" target="_blank" rel="noopener">http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk1.cpio.gz</a><br><a href="http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk2.cpio.gz" target="_blank" rel="noopener">http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk2.cpio.gz</a><br><a href="http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk3.cpio.gz" target="_blank" rel="noopener">http://download.oracle.com/otn/linux/oracle9i/9204/ship_9204_linux_disk3.cpio.gz</a>  </p>
+<h2 id="java-1-5-0-06"><a href="#java-1-5-0-06" class="headerlink" title="java 1.5.0_06"></a>java 1.5.0_06</h2><p><a href="http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase5-419410.html#jdk-1.5.0_06-oth-JPR" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase5-419410.html#jdk-1.5.0_06-oth-JPR</a>  </p>
+<h2 id="tomcat-5-5-25"><a href="#tomcat-5-5-25" class="headerlink" title="tomcat 5.5.25"></a>tomcat 5.5.25</h2><p><a href="http://archive.apache.org/dist/tomcat/tomcat-5/v5.5.25/bin/" target="_blank" rel="noopener">http://archive.apache.org/dist/tomcat/tomcat-5/v5.5.25/bin/</a>  </p>
+<p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/28/2613194.html" target="_blank" rel="noopener">http://www.cnblogs.com/snigoal/archive/2012/07/28/2613194.html</a></p>
 
       
     </div>
@@ -422,52 +461,17 @@ SQL&gt; alter user system identified <span class="keyword">by</span> [新密碼]
     </header>
     <div class="entry">
       
-        <pre><code><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">TRIGGER</span> [trigger_name]
-<span class="keyword">BEFORE</span> <span class="keyword">insert</span> <span class="keyword">ON</span> [table_name]
-<span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span>
-<span class="keyword">declare</span> next_auto_no <span class="built_in">number</span>;</span>
-<span class="operator"><span class="keyword">begin</span>
-<span class="keyword">select</span> [Sequence_name].<span class="keyword">nextval</span>
-<span class="keyword">into</span> next_auto_no
-<span class="keyword">from</span> dual;</span>
+        <pre><code>CREATE OR REPLACE TRIGGER [trigger_name]
+BEFORE insert ON [table_name]
+FOR EACH ROW
+declare next_auto_no number;
+begin
+select [Sequence_name].nextval
+into next_auto_no
+from dual;
 :new.[column_name]:=next_auto_no;
-<span class="operator"><span class="keyword">end</span>;</span>
-</code></pre><p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/28/2613200.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/07/28/2613200.html</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-02-06T17:00:56.000Z"><a href="/2013/02/07/delete-sd-partition-for-raspberrypi/">2013-02-07</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/02/07/delete-sd-partition-for-raspberrypi/">删除SD卡的分区</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>使用win32diskimager为Raspberry Pi在SD上做系统后，windows系统只能认出引导分区。  </p>
-<p>要在windows下释放SD的所有空间，使用windows自身的磁盘管理行不通，使用Acronis Disk Director Suite删除SD中的分区（操作完成后需要提交才能生效）即可。  </p>
-<p>ref：<a href="http://www.cnblogs.com/snigoal/archive/2012/10/29/2744650.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/10/29/2744650.html</a></p>
+end;
+</code></pre><p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/28/2613200.html" target="_blank" rel="noopener">http://www.cnblogs.com/snigoal/archive/2012/07/28/2613200.html</a></p>
 
       
     </div>
@@ -543,7 +547,7 @@ SQL&gt; alter user system identified <span class="keyword">by</span> [新密碼]
   
     <li><a href="/tags/thanks/">thanks</a><small>1</small></li>
   
-    <li><a href="/tags/tips/">tips</a><small>3</small></li>
+    <li><a href="/tags/tips/">tips</a><small>4</small></li>
   
   </ul>
 </div>
@@ -561,7 +565,7 @@ SQL&gt; alter user system identified <span class="keyword">by</span> [新密碼]
 
 <div class="alignleft">
   
-  &copy; 2016-2017 SniGoal
+  &copy; 2016-2020 SniGoal
    | 
   <span id="busuanzi_container_site_uv">
     You are viewer No. <span id="busuanzi_value_site_uv"></span>.

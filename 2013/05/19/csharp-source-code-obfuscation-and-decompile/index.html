@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <title>C#源代码的混淆与反编译 | SniGoal</title>
@@ -12,11 +12,11 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="C#源代码的混淆与反编译"/>
-  <meta property="og:site_name" content="SniGoal"/>
+  <meta property="og:title" content="C#源代码的混淆与反编译">
+  <meta property="og:site_name" content="SniGoal">
 
   
-    <meta property="og:image" content="undefined"/>
+    <meta property="og:image" content="undefined">
   
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -26,7 +26,7 @@
   
 
 </head>
-
+</html>
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
@@ -66,9 +66,9 @@
 <p>主流的方式是加密和混淆，基本上有字符串加密、名称混淆、流程混淆。前两个通过降低代码的可阅读性来提高反编译时间成本，实现机密。第三个本人没有深究其内在机制。  </p>
 <p>初选定下使用Dotfuscator，因为这个方案网上推荐的最多，但是实施中遇到很多问题。这里需要说明下当前的项目是一个Form调用一个DLL，所以两个文件一起进行混淆，否则调用会出问题。Dotfuscator在进行两个文件混淆时总是不能通过。时间关系，寻找其它方案。  </p>
 <p>后找到.NET Reactor，免安装，无需注册，两个文件混淆也很容易，混淆时勾选[NecroBit®]很快解决了问题。混淆后，使用.NET Reflector反编译，核心算法均无法看到，外部调用的对象及其公有方法的名称未改变，应用正常工作。  </p>
-<h2 id="使用-NET_Reactor">使用.NET Reactor</h2><p>介绍及下载<a href="http://www.cnblogs.com/saptechnique/archive/2009/09/12/1565152.html" target="_blank" rel="external">http://www.cnblogs.com/saptechnique/archive/2009/09/12/1565152.html</a></p>
+<h2 id="使用-NET-Reactor"><a href="#使用-NET-Reactor" class="headerlink" title="使用.NET Reactor"></a>使用.NET Reactor</h2><p>介绍及下载<a href="http://www.cnblogs.com/saptechnique/archive/2009/09/12/1565152.html" target="_blank" rel="noopener">http://www.cnblogs.com/saptechnique/archive/2009/09/12/1565152.html</a></p>
 <p>需要说明的是勾选Obfuscation仅混淆私有成员和私有方法；勾选NecroBit®会隐藏公有方法的内容，保护强度提高很多。</p>
-<h2 id="使用-NET_Reflector">使用.NET Reflector</h2><p>官网可试用<a href="http://www.red-gate.com/products/dotnet-development/reflector/" target="_blank" rel="external">http://www.red-gate.com/products/dotnet-development/reflector</a></p>
+<h2 id="使用-NET-Reflector"><a href="#使用-NET-Reflector" class="headerlink" title="使用.NET Reflector"></a>使用.NET Reflector</h2><p>官网可试用<a href="http://www.red-gate.com/products/dotnet-development/reflector/" target="_blank" rel="noopener">http://www.red-gate.com/products/dotnet-development/reflector</a></p>
 <p>打开软件首先选择.NET Framework版本，然后选择需要反编译的文件。</p>
 <p>刚开始很奇怪混淆与反编译软件怎么没有开源产品，后来想明白了这种反开源的产品怎么会开源呢？也许还与C#程序员的数量有关。</p>
 
@@ -160,7 +160,7 @@
   
     <li><a href="/tags/thanks/">thanks</a><small>1</small></li>
   
-    <li><a href="/tags/tips/">tips</a><small>3</small></li>
+    <li><a href="/tags/tips/">tips</a><small>4</small></li>
   
   </ul>
 </div>
@@ -178,7 +178,7 @@
 
 <div class="alignleft">
   
-  &copy; 2016-2017 SniGoal
+  &copy; 2016-2020 SniGoal
    | 
   <span id="busuanzi_container_site_uv">
     You are viewer No. <span id="busuanzi_value_site_uv"></span>.

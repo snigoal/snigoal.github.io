@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <title>Oracle随Linux系统自动启动 | SniGoal</title>
@@ -10,17 +10,16 @@
 SELINUX=[permissive|enforcing|disabled]
 改为  
 SELINUX=disabled
-2.修改oratab将/etc/oratab中的
-[oracle_sid]:[$oracle_home]:">
+2.修改oratab将/etc/oratab中的    [oracle_sid]:[$oracle_hom">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Oracle随Linux系统自动启动"/>
-  <meta property="og:site_name" content="SniGoal"/>
+  <meta property="og:title" content="Oracle随Linux系统自动启动">
+  <meta property="og:site_name" content="SniGoal">
 
   
-    <meta property="og:image" content="undefined"/>
+    <meta property="og:image" content="undefined">
   
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -30,7 +29,7 @@ SELINUX=disabled
   
 
 </head>
-
+</html>
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
@@ -66,20 +65,17 @@ SELINUX=disabled
     <div class="entry">
       
         <p>##　1.修改组策略<br>将/etc/selinux/config中的  </p>
-<pre><code>SELINUX=[permissive|<span class="string">enforcing</span>|<span class="string">disabled]</span>
+<pre><code>SELINUX=[permissive|enforcing|disabled]
 </code></pre><p>改为  </p>
-<pre><code><span class="attribute">SELINUX</span>=<span class="string">disabled</span>
-</code></pre><h2 id="2-修改oratab">2.修改oratab</h2><p>将/etc/oratab中的</p>
-<pre><code>[oracle_sid]:[<span class="variable">$oracle</span>_home]:N
-</code></pre><p>改为</p>
-<pre><code>[oracle_sid]:[<span class="variable">$oracle</span>_home]:Y
-</code></pre><h2 id="3-复制init[oracle_sid]-ora文件">3.复制init[oracle_sid].ora文件</h2><p>将[$oracle_base]/admin/[oracle_sid]/pfile下的以init[oracle_sid].ora开头的文件复制到[$oracle_home]/dbs下，并更名为init[oracle_sid].ora</p>
-<h2 id="4-添加自启动命令">4.添加自启动命令</h2><p>在/etc/rc.d/rc.local中添加下面的内容</p>
-<pre><code># <span class="operator"><span class="keyword">start</span> <span class="keyword">oracle</span>
-su - <span class="keyword">oracle</span> -<span class="keyword">c</span> <span class="string">'lsnrctl start'</span>
-su - <span class="keyword">oracle</span> -<span class="keyword">c</span> <span class="string">'dbstart'</span></span>
+<pre><code>SELINUX=disabled
+</code></pre><h2 id="2-修改oratab"><a href="#2-修改oratab" class="headerlink" title="2.修改oratab"></a>2.修改oratab</h2><p>将/etc/oratab中的<br>    [oracle_sid]:[$oracle_home]:N<br>改为<br>    [oracle_sid]:[$oracle_home]:Y</p>
+<h2 id="3-复制init-oracle-sid-ora文件"><a href="#3-复制init-oracle-sid-ora文件" class="headerlink" title="3.复制init[oracle_sid].ora文件"></a>3.复制init[oracle_sid].ora文件</h2><p>将[$oracle_base]/admin/[oracle_sid]/pfile下的以init[oracle_sid].ora开头的文件复制到[$oracle_home]/dbs下，并更名为init[oracle_sid].ora</p>
+<h2 id="4-添加自启动命令"><a href="#4-添加自启动命令" class="headerlink" title="4.添加自启动命令"></a>4.添加自启动命令</h2><p>在/etc/rc.d/rc.local中添加下面的内容</p>
+<pre><code># start oracle
+su - oracle -c &apos;lsnrctl start&apos;
+su - oracle -c &apos;dbstart&apos;
 </code></pre><p>##5.测试<br>执行rc.local测试一下</p>
-<p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/21/2602122.html" target="_blank" rel="external">http://www.cnblogs.com/snigoal/archive/2012/07/21/2602122.html</a></p>
+<p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/21/2602122.html" target="_blank" rel="noopener">http://www.cnblogs.com/snigoal/archive/2012/07/21/2602122.html</a></p>
 
       
     </div>
@@ -169,7 +165,7 @@ su - <span class="keyword">oracle</span> -<span class="keyword">c</span> <span c
   
     <li><a href="/tags/thanks/">thanks</a><small>1</small></li>
   
-    <li><a href="/tags/tips/">tips</a><small>3</small></li>
+    <li><a href="/tags/tips/">tips</a><small>4</small></li>
   
   </ul>
 </div>
@@ -187,7 +183,7 @@ su - <span class="keyword">oracle</span> -<span class="keyword">c</span> <span c
 
 <div class="alignleft">
   
-  &copy; 2016-2017 SniGoal
+  &copy; 2016-2020 SniGoal
    | 
   <span id="busuanzi_container_site_uv">
     You are viewer No. <span id="busuanzi_value_site_uv"></span>.

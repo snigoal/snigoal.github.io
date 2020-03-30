@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <title>C#调用exe | SniGoal</title>
@@ -8,18 +8,17 @@
   
   <meta name="description" content="在C#中，通过Process类来进行进程操作。 Process类在System.Diagnostics包中。
 DEMO1using System.Diagnostics;
-Process p = Process.Start(&quot;notepad.exe&quot;);
-p.WaitForExit();//关键
-D">
+Process p = Process.Start(&amp;quot;notepad.exe&amp;quot;);
+p.WaitForExi">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="C#调用exe"/>
-  <meta property="og:site_name" content="SniGoal"/>
+  <meta property="og:title" content="C#调用exe">
+  <meta property="og:site_name" content="SniGoal">
 
   
-    <meta property="og:image" content="undefined"/>
+    <meta property="og:image" content="undefined">
   
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -29,7 +28,7 @@ D">
   
 
 </head>
-
+</html>
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
@@ -65,21 +64,21 @@ D">
     <div class="entry">
       
         <p>在C#中，通过Process类来进行进程操作。 Process类在System.Diagnostics包中。</p>
-<h1 id="DEMO1">DEMO1</h1><pre><code><span class="keyword">using</span> System.Diagnostics;
-Process p = Process.Start(<span class="string">"notepad.exe"</span>);
-p.WaitForExit();<span class="comment">//关键</span>
-</code></pre><h1 id="DEMO2">DEMO2</h1><pre><code><span class="keyword">using</span> System.Diagnostics;
-Process p = <span class="keyword">new</span> Process();
-p.StartInfo.Arguments = <span class="string">""</span>;
-p.StartInfo.CreateNoWindow = <span class="literal">true</span>;<span class="comment">//不创建窗口</span>
-p.StartInfo.UseShellExecute = <span class="literal">false</span>;
-p.StartInfo.FileName = <span class="string">"notepad.exe"</span>;
-<span class="keyword">if</span> (File.Exists(<span class="string">"notepad.exe"</span>))
+<h1 id="DEMO1"><a href="#DEMO1" class="headerlink" title="DEMO1"></a>DEMO1</h1><pre><code>using System.Diagnostics;
+Process p = Process.Start(&quot;notepad.exe&quot;);
+p.WaitForExit();//关键
+</code></pre><h1 id="DEMO2"><a href="#DEMO2" class="headerlink" title="DEMO2"></a>DEMO2</h1><pre><code>using System.Diagnostics;
+Process p = new Process();
+p.StartInfo.Arguments = &quot;&quot;;
+p.StartInfo.CreateNoWindow = true;//不创建窗口
+p.StartInfo.UseShellExecute = false;
+p.StartInfo.FileName = &quot;notepad.exe&quot;;
+if (File.Exists(&quot;notepad.exe&quot;))
 {
 p.Start();
 p.WaitForExit();
 }
-<span class="comment">//如果调用控制台程序，该例不会出现黑窗口。</span>
+//如果调用控制台程序，该例不会出现黑窗口。
 </code></pre>
       
     </div>
@@ -169,7 +168,7 @@ p.WaitForExit();
   
     <li><a href="/tags/thanks/">thanks</a><small>1</small></li>
   
-    <li><a href="/tags/tips/">tips</a><small>3</small></li>
+    <li><a href="/tags/tips/">tips</a><small>4</small></li>
   
   </ul>
 </div>
@@ -187,7 +186,7 @@ p.WaitForExit();
 
 <div class="alignleft">
   
-  &copy; 2016-2017 SniGoal
+  &copy; 2016-2020 SniGoal
    | 
   <span id="busuanzi_container_site_uv">
     You are viewer No. <span id="busuanzi_value_site_uv"></span>.

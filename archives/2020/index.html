@@ -3,20 +3,13 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>配置RaspberryPi交叉编译环境 | SniGoal</title>
+  <title>归档：2020 | SniGoal</title>
   <meta name="author" content="SniGoal">
-  
-  <meta name="description" content="os: ubuntu  
-1.安装交叉编译工具sudo apt-get install gcc-arm-linux-gnueabi
-2.编写测试程序并编译程序源码：  
-#include &amp;amp;lt;stdio.h&amp;amp;gt;
-int main() {
-printf(&amp;quot;Hello ">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="配置RaspberryPi交叉编译环境">
+  
   <meta property="og:site_name" content="SniGoal">
 
   
@@ -49,73 +42,25 @@ printf(&amp;quot;Hello ">
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-05-01T14:37:52.000Z"><a href="/2013/05/01/cross-compiling-for-raspberrypi/">2013-05-01</a></time>
-      
-      
-  
-    <h1 class="title">配置RaspberryPi交叉编译环境</h1>
-  
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">2020</h2>
 
-    </header>
-    <div class="entry">
-      
-        <p>os: ubuntu  </p>
-<h2 id="1-安装交叉编译工具"><a href="#1-安装交叉编译工具" class="headerlink" title="1.安装交叉编译工具"></a>1.安装交叉编译工具</h2><pre><code>sudo apt-get install gcc-arm-linux-gnueabi
-</code></pre><h2 id="2-编写测试程序并编译"><a href="#2-编写测试程序并编译" class="headerlink" title="2.编写测试程序并编译"></a>2.编写测试程序并编译</h2><p>程序源码：  </p>
-<pre><code>#include &amp;lt;stdio.h&amp;gt;
-int main() {
-printf(&quot;Hello World!\n&quot;);
-return 0;
-}
-</code></pre><p>编译指令：<br>V<br>    arm-linux-gnueabi-gcc hello.c</p>
-<h2 id="3-在RaspberryPi上测试运行"><a href="#3-在RaspberryPi上测试运行" class="headerlink" title="3.在RaspberryPi上测试运行"></a>3.在RaspberryPi上测试运行</h2><p>通过scp命令上传到RaspberryPi上  </p>
-<pre><code>scp a.out pi@[ip]:~/
-</code></pre><h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><p><a href="http://www.neohe.tk/raspberrypi-cross-compile/" target="_blank" rel="noopener">www.neohe.tk/raspberrypi-cross-compile/</a></p>
 
-      
-    </div>
-    <footer>
-      
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Linux/">Linux</a>, <a href="/tags/RaspberryPi/">RaspberryPi</a>
+  <div class="archive">
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2020-03-30T08:03:32.000Z"><a href="/2020/03/30/open-source-icons/">2020-03-30</a></time>
+            
+              <h1 class="title"><a href="/2020/03/30/open-source-icons/">open-source-icons</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
   </div>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-<section id="comment">
-  <h1 class="title">留言</h1>
-
-  
-      <div id="fb-root"></div>
-<script>
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script>
-
-<div class="fb-comments" data-href="http://blog.snigoal.com/2013/05/01/cross-compiling-for-raspberrypi/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
-      
-  
-</section>
-
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
