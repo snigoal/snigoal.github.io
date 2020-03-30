@@ -49,6 +49,39 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-09-16T13:30:00.000Z"><a href="/2015/09/16/hello-world/">2015-09-16</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/16/hello-world/">Hello World</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="hello-world-from-Hexo"><a href="#hello-world-from-Hexo" class="headerlink" title="hello world from Hexo!"></a>hello world from Hexo!</h2><p>The pride &amp; joy of an engineer.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2013-05-18T16:03:09.000Z"><a href="/2013/05/19/csharp-source-code-obfuscation-and-decompile/">2013-05-19</a></time>
       
       
@@ -445,49 +478,6 @@ SQL&gt; alter user system identified by [新密碼];
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-02-06T17:06:50.000Z"><a href="/2013/02/07/add-increment-trigger-in-oracle9i/">2013-02-07</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/02/07/add-increment-trigger-in-oracle9i/">Oracle9i中添加自增触发器</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <pre><code>CREATE OR REPLACE TRIGGER [trigger_name]
-BEFORE insert ON [table_name]
-FOR EACH ROW
-declare next_auto_no number;
-begin
-select [Sequence_name].nextval
-into next_auto_no
-from dual;
-:new.[column_name]:=next_auto_no;
-end;
-</code></pre><p>转自：<a href="http://www.cnblogs.com/snigoal/archive/2012/07/28/2613200.html" target="_blank" rel="noopener">http://www.cnblogs.com/snigoal/archive/2012/07/28/2613200.html</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -538,6 +528,8 @@ end;
     <li><a href="/tags/git/">git</a><small>1</small></li>
   
     <li><a href="/tags/history/">history</a><small>2</small></li>
+  
+    <li><a href="/tags/house/">house</a><small>1</small></li>
   
     <li><a href="/tags/ref/">ref</a><small>1</small></li>
   
