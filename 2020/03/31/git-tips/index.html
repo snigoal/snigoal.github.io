@@ -6,10 +6,11 @@
   <title>Git tips | SniGoal</title>
   <meta name="author" content="SniGoal">
   
-  <meta name="description" content="Git工作流Git 工作流程 by 阮一峰常用 Git 命令清单 - 阮一峰的网络日志
+  <meta name="description" content="Git工作流Git 工作流程 by 阮一峰
 Git tips12# 克隆代码库git clone [repos url]
 12# 创建新分支，并切换到新分支git checkout -b [new branch name]
-12# 查看本地代码库的服务器源">
+12# 查看本地代码库的服务器源信息git remote -v
+123# 删">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -53,7 +54,7 @@ Git tips12# 克隆代码库git clone [repos url]
     <header>
       
         <div class="icon"></div>
-        <time datetime="2020-03-30T15:26:20.000Z"><a href="/2020/03/30/git-tips/">2020-03-30</a></time>
+        <time datetime="2020-03-31T06:52:07.000Z"><a href="/2020/03/31/git-tips/">2020-03-31</a></time>
       
       
   
@@ -63,11 +64,11 @@ Git tips12# 克隆代码库git clone [repos url]
     </header>
     <div class="entry">
       
-        <h2 id="Git工作流"><a href="#Git工作流" class="headerlink" title="Git工作流"></a>Git工作流</h2><p><a href="http://www.ruanyifeng.com/blog/2015/12/git-workflow.html" target="_blank" rel="noopener">Git 工作流程 by 阮一峰</a><br><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单 - 阮一峰的网络日志</a></p>
+        <h2 id="Git工作流"><a href="#Git工作流" class="headerlink" title="Git工作流"></a>Git工作流</h2><p><a href="http://www.ruanyifeng.com/blog/2015/12/git-workflow.html" target="_blank" rel="noopener">Git 工作流程 by 阮一峰</a></p>
 <h2 id="Git-tips"><a href="#Git-tips" class="headerlink" title="Git tips"></a>Git tips</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 克隆代码库</span></span><br><span class="line">git <span class="built_in">clone</span> [repos url]</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建新分支，并切换到新分支</span></span><br><span class="line">git checkout -b [new branch name]</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看本地代码库的服务器源信息</span></span><br><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示所有远程仓库</span></span><br><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除最近若干次提交</span></span><br><span class="line">git reset --hard [version id]</span><br><span class="line">git push origin HEAD --force</span><br></pre></td></tr></table></figure>
 <h2 id="写好-Commit-信息"><a href="#写好-Commit-信息" class="headerlink" title="写好 Commit 信息"></a>写好 Commit 信息</h2><p>如果你想真正写好 Commit 信息，不妨参考以下链接： </p>
 <ul>
 <li><a href="https://github.com/erlang/otp/wiki/Writing-good-commit-messages" target="_blank" rel="noopener">https://github.com/erlang/otp/wiki/Writing-good-commit-messages</a></li>
@@ -111,7 +112,7 @@ Git tips12# 克隆代码库git clone [repos url]
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://blog.snigoal.com/2020/03/30/git-tips/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://blog.snigoal.com/2020/03/31/git-tips/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>
