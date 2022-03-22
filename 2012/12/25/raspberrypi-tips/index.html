@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="snigoal&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      RaspberryPi Tips | SniGoal
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  
+<script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>SniGoal</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>RaspberryPi Tips</h2>
+  <p class="post-date">2012-12-25</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h2 id="Raspbian从命令行启动"><a href="#Raspbian从命令行启动" class="headerlink" title="Raspbian从命令行启动"></a>Raspbian从命令行启动</h2><pre><code>sudo raspi-config &gt;&gt; boot_behaviour &gt;&gt; no
+</code></pre>
+<h2 id="Raspbian开机自动运行脚本（有点问题）"><a href="#Raspbian开机自动运行脚本（有点问题）" class="headerlink" title="Raspbian开机自动运行脚本（有点问题）"></a>Raspbian开机自动运行脚本（有点问题）</h2><p>Raspbian(<a target="_blank" rel="noopener" href="http://www.raspbian.org/)is">http://www.raspbian.org/)is</a> a free operating system based on Debian optimized for the Raspberry Pi hardware. </p>
+<p>开机自动运行的方法与Debian类似。<br>以下内容摘自<a target="_blank" rel="noopener" href="http://penglei.name/html/96.html%EF%BC%9A">http://penglei.name/html/96.html：</a><br>Debian定义了多个运行级别脚本，分别存放在&#x2F;etc&#x2F;rc0.d至&#x2F;etc&#x2F;rc6.d中，默认级别为5.<br>要增加开机自动运行脚本的方法如下：<br>    #vi &#x2F;etc&#x2F;init.d&#x2F;rc.local</p>
+<p>写入你需要运行的脚本，:wq退出<br>    # chmod +x &#x2F;etc&#x2F;init.d&#x2F;rc.local #增加脚本执行权限<br>    # update-rc.d rc.local start 99 2 3 4 5 . stop 01 0 1 6 . #设置启动级别</p>
+<p>若要删除脚本的启动级别运行如下命令<br>    # update-rc.d -f rc.local remove</p>
+<p>ref:<a target="_blank" rel="noopener" href="http://penglei.name/html/96.html">http://penglei.name/html/96.html</a></p>
+<h1 id="Raspbian如何显示中文"><a href="#Raspbian如何显示中文" class="headerlink" title="Raspbian如何显示中文"></a>Raspbian如何显示中文</h1><ol>
+<li><p>将Raspberry Pi连接到网络，在终端中执行下面的命令</p>
+</li>
+<li><p>获取并安装文泉驿微米黑字体  </p>
+<p> sudo apt-get install ttf-wqy-microhei</p>
+</li>
+<li><p>配置系统字体，首先进入区域设置界面</p>
+<p> sudo dpkg-reconfigure locales</p>
+</li>
+<li><p>用空格键选择四个中文字体zh_CN.GB2312, zh_CN.GB18030, zh_CN GBK, zh_CN.UTF-8,然后确定</p>
+</li>
+<li><p>选择zh_CN.UTF-8作为系统环境默认区域设置，然后确定</p>
+</li>
+<li><p>重启</p>
+</li>
+</ol>
+<h2 id="Raspbian-switch-to-root"><a href="#Raspbian-switch-to-root" class="headerlink" title="Raspbian switch to root"></a>Raspbian switch to root</h2><p>To execute a command as root, put sudo before the command, for example  </p>
+<pre><code>sudo halt
+</code></pre>
+<p>if you want to halt the system.<br>If you wish to become root temporarily, enter the command  </p>
+<pre><code>sudo -s
+</code></pre>
+<p>and to leave root mode enter the command  </p>
+<pre><code>exit
+</code></pre>
+<p>ref:<a target="_blank" rel="noopener" href="http://www.raspberrypi.org/phpBB3/viewtopic.php?f=26&amp;t=13160">http://www.raspberrypi.org/phpBB3/viewtopic.php?f=26&amp;t=13160</a><br>ref:<a target="_blank" rel="noopener" href="http://www.cnblogs.com/snigoal/archive/2012/09/16/2687319.html">http://www.cnblogs.com/snigoal/archive/2012/09/16/2687319.html</a></p>
+<h2 id="Raspian安装Chrome"><a href="#Raspian安装Chrome" class="headerlink" title="Raspian安装Chrome"></a>Raspian安装Chrome</h2><ol>
+<li><code>wget http://goo.gl/go5yx -O install.sh</code></li>
+<li><code>chmod a+x install.sh</code></li>
+<li><code>./install.sh</code></li>
+<li><code>chrome -disable-ipv6 &amp;</code> (<code>&amp;</code> for running at background)</li>
+<li>error loading libsmime3.so try <code>sudo apt-get update then redo step 3</code></li>
+</ol>
+<h2 id="Raspian安装中文输入法SCIM-Smart-Common-Input-Method"><a href="#Raspian安装中文输入法SCIM-Smart-Common-Input-Method" class="headerlink" title="Raspian安装中文输入法SCIM (Smart Common Input Method)"></a>Raspian安装中文输入法SCIM (Smart Common Input Method)</h2><ol>
+<li><code>sudo apt-get install scim-pinyin</code></li>
+<li>if some packages can’t be downloaded, try <code>sudo apt-get update --fix-missing</code></li>
+<li>run scim and it will run wihle booting.</li>
+</ol>
+<h2 id="安装Pi-Store"><a href="#安装Pi-Store" class="headerlink" title="安装Pi Store"></a>安装Pi Store</h2><p><a target="_blank" rel="noopener" href="http://www.raspberrypi.org/archives/2768">http://www.raspberrypi.org/archives/2768</a></p>
+<h2 id="修改root密码"><a href="#修改root密码" class="headerlink" title="修改root密码"></a>修改root密码</h2><pre><code>sudo passwd root
+</code></pre>
+<h2 id="安装Subversion"><a href="#安装Subversion" class="headerlink" title="安装Subversion"></a>安装Subversion</h2><pre><code>sudo apt-get install subversion
+</code></pre>
+<p>ref:  </p>
+<ol>
+<li><a target="_blank" rel="noopener" href="http://www.raspberrypi.org/phpBB3/viewtopic.php?f=30&amp;t=13337">http://www.raspberrypi.org/phpBB3/viewtopic.php?f=30&amp;t=13337</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ha97.com/4467.html">http://www.ha97.com/4467.html</a></li>
+</ol>
+<h2 id="svn-over-http"><a href="#svn-over-http" class="headerlink" title="svn over http"></a>svn over http</h2><p>ref:<a target="_blank" rel="noopener" href="http://www.jeremymorgan.com/tutorials/raspberry-pi/raspberry-pi-how-to-svn-server/">http://www.jeremymorgan.com/tutorials/raspberry-pi/raspberry-pi-how-to-svn-server/</a></p>
+<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><pre><code>sudo apt-get install git-core
+</code></pre>
+<p>ref:<a target="_blank" rel="noopener" href="http://quick2wire.com/articles/a-gentle-guide-to-git-and-github/">http://quick2wire.com/articles/a-gentle-guide-to-git-and-github/</a></p>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#RaspberryPi" >
+    <span class="tag-code">RaspberryPi</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <div id="comments"></div>
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Raspbian%E4%BB%8E%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%90%AF%E5%8A%A8"><span class="toc-nav-text">Raspbian从命令行启动</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Raspbian%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%EF%BC%88%E6%9C%89%E7%82%B9%E9%97%AE%E9%A2%98%EF%BC%89"><span class="toc-nav-text">Raspbian开机自动运行脚本（有点问题）</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Raspbian%E5%A6%82%E4%BD%95%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87"><span class="toc-nav-text">Raspbian如何显示中文</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Raspbian-switch-to-root"><span class="toc-nav-text">Raspbian switch to root</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Raspian%E5%AE%89%E8%A3%85Chrome"><span class="toc-nav-text">Raspian安装Chrome</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Raspian%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95SCIM-Smart-Common-Input-Method"><span class="toc-nav-text">Raspian安装中文输入法SCIM (Smart Common Input Method)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AE%89%E8%A3%85Pi-Store"><span class="toc-nav-text">安装Pi Store</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BF%AE%E6%94%B9root%E5%AF%86%E7%A0%81"><span class="toc-nav-text">修改root密码</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AE%89%E8%A3%85Subversion"><span class="toc-nav-text">安装Subversion</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#svn-over-http"><span class="toc-nav-text">svn over http</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AE%89%E8%A3%85Git"><span class="toc-nav-text">安装Git</span></a></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://blog.snigoal.com/2012/12/25/raspberrypi-tips/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+        
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "snigoal";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "RaspberryPi Tips",
+        owner: "snigoal",
+        repo: "snigoal.github.io",
+        oauth: {
+          client_id: "f0fe77c652fadcaef833",
+          client_secret: "55ebcd3cb3faf88ea5c57a7648b2448dfc562460"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2022 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine == 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>
